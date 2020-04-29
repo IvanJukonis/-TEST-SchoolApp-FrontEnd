@@ -1,0 +1,18 @@
+
+export const LOGIN_USER_PENDING = 'LOGIN_USER_PENDING'
+
+export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS'
+
+export const LOGIN_USER_ERROR = 'LOGIN_USER_ERROR'
+
+export const IS_AUTH = 'IS_AUTH'
+
+export const FETCH_USERS = 'FETCH_USERS'
+
+export const ADD_USER_PENDING = 'ADD_USER_PENDING'
+
+export const ADD_USER_SUCCESS = 'ADD_USER_SUCCESS'
+
+export const ADD_USER_ERROR = 'ADD_USER_ERROR'
+
+export const USER_LOGOUT = 'USER_LOGOUT'
