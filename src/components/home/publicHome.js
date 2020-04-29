@@ -10,7 +10,7 @@ class publicHome extends Component {
       <div className='container'>
         <div className='header'>
           <div className='title'>
-            <h1>La pag del ivi</h1>
+            <h1>SchoolApp</h1>
           </div>
           <div className='publicity'>
             <div className='publicity-mr'>
