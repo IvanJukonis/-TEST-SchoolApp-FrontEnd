@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 //REVISAR COMPONENTES INDIVIDUALES
 import Home from '../components/home/publicHome.js';
 import Login from '../components/login/login.js';
+import Login from '../components/signup/register.js';
 import store from '../redux/store/store';
 
 class Routes extends Component {
@@ -15,6 +16,7 @@ class Routes extends Component {
 
           <Route exact path='/home' component={Home} />
           <Route exact path='/login' component={Login} />
+          <Route exact path='/register' component={Register} />
           <Redirect from='/' to='/home' />
 
         </Switch>
