@@ -1,8 +1,9 @@
 .login-container{
     display: flex;
     justify-content: center;
-    height: 900px;
+    height: 950px;
     background-color: #bba;
+    
     
 }
 .containerLogin{
@@ -15,7 +16,7 @@
     padding: 20px 30px;
     border-top: 4px solid #017bab;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: cursive;
    
 }
 h5{
