@@ -52,7 +52,7 @@ class Login extends Component {
                   />
                   {!this.props.isLoading ? (
                     <button type="submit" className="btnLogin">
-                      Log In
+                      Sign In
                     </button>
                   ) : (
                       //Barrita que carga
