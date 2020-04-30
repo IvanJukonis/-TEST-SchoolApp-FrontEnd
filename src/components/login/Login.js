@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Formik, Form, Field } from 'formik'
 import { connect } from 'react-redux'
-import { logIn } from '../redux/actions/login'
+import { logIn } from '../../redux/actions/login'
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 import { ClipLoader } from 'react-spinners'
