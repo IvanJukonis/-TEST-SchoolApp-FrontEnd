@@ -1,34 +1,34 @@
-
+import "./publicHome.css"
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
-import "./publicHome.css"
+
 
 class publicHome extends Component {
   render() {
     return (
-      <div className='container'>
+      
+      <div className='containerHome'>
         <div className='header'>
           <div className='title'>
-            <h1>SchoolApp</h1>
+            <h1 className = 'text1'>School</h1>
+            <h1 className = 'text2'>.</h1>
+            <h1 className = 'text3  '>App</h1>
           </div>
         </div>
-        <div className='home'>
-          <div className='login'>
-            <button><Link to='/login'>Login</Link></button>
-          </div>
-          <div className='register'>
-            <button> <Link to='/register'>Register</Link></button>
-          </div>
-          <div className='information'>
-            <button><Link to='/information'>information</Link></button>
-          </div>
-          <div className='contact'>
-            <button><Link to='/contact'>Contacto</Link></button>
-          </div>
+        <ul className='button'>
+          <li><Link className='login' to='/Login'>Login</Link></li>
+          <li> <Link className='register' to='/register'>Register</Link></li>
+          <li><Link className='information' to='/information'>information</Link></li>
+          <li><Link className='contact' to='/contact'>Contacto</Link></li>
+        </ul>
+        
+        <div className='footer'>
+          creado por santiago 
         </div>
       </div>
+      
     )
   }
 }

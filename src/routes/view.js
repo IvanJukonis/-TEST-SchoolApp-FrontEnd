@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 //Traigo 4 props de librearia para manipulacion de rutas
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-
 //REVISAR COMPONENTES INDIVIDUALES
-import Home from '../components/home/publicHome';
+import Home from '../components/home/publicHome.js';
+import Login from '../components/login/login.js';
 import store from '../redux/store/store';
 
 class Routes extends Component {
@@ -14,7 +14,9 @@ class Routes extends Component {
         <Switch>
 
           <Route exact path='/home' component={Home} />
+          <Route exact path='/login' component={Login} />
           <Redirect from='/' to='/home' />
+
         </Switch>
       </BrowserRouter>
     );
