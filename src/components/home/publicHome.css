@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css?family=Lobster");
+
+.containerHome {
+  display: flex;
+  flex-direction: column;
+  background-color:  #bba;
+  height: 900px;
+  
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  font-family: "Lobster", cursive;
+  font-size: 30px;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0;
+  
+}
+
+li{
+  font:25px;
+}
+
+ul {
+  list-style: none;
+  
+}
+
+.button li .login,
+.register,
+.information,
+.contact {
+  font-family: Arial;
+  font-size: 11px;
+  text-decoration: none;
+  float: left;
+  padding: 10px 20px 10px 20px;
+  background-color: #2175bc;
+  color: #fff;
+  border-radius: 15px;
+  margin: 10px;
+  font-size: 20px;
+  border: 4px solid #f2f2f2
+}
+
+.button li .login:hover,
+.contact:hover,
+.information:hover,
+.register:hover {
+  background-color: #2586d7;
+  margin-top: -2;
+  padding-bottom: 12px;
+}
+
+.footer {
+  width: 100%;
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+  align-self: flex-end;
+  
+}
+
+h1 {
+  font-weight: 100;
+  color: #1089f0;
+  display: flex;
+}
+
+.text1 {
+  animation: bounce1 0.5s alternate infinite ease-in;
+}
+.text2 {
+  animation: bounce2 0.5s alternate infinite ease-in;
+}
+.text3 {
+  animation: bounce3 0.5s alternate infinite ease-in;
+}
+
+@keyframes bounce1 {
+  0% {
+    transform: translateX(-40%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce2 {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce3 {
+  0% {
+    transform: translateX(40%);
+  }
+  100% {
+    transform: translateX(-10);
+  }
+}
