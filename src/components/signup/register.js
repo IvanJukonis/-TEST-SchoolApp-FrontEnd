@@ -1,3 +1,4 @@
+import './register.css'
 import React, { Component } from "react";
 import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
@@ -8,6 +9,7 @@ import { Link } from "react-router-dom";
 class Register extends Component {
     render() {
         return (
+            <div className= 'register-container'>
             <Formik
 
                 initialValues={{ name: "", password: "" }}
@@ -27,18 +29,19 @@ class Register extends Component {
                                 <Field
                                     type="text"
                                     className="registerPassword"
-                                    name="name"
+                                    name="password"
                                     placeholder="Password"
                                 ></Field>
                            
                             <div className="btnRegisterLinks">
-                                <button id='submitButton' type='submit'> Submit  </button>
-                                <p><Link className="btnRegisterHome" to="/home">Back to home</Link></p>
+                                <button className='btnSubmit' type='submit'> Sign Up  </button>
+                                <p><Link className="btnBackHome" to="/home">Back to home</Link></p>
                             </div>
                         </div>
                     </Form>
                 )}
             </Formik>
+            </div>
         );
     }
 }
