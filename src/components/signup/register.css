@@ -25,7 +25,7 @@ h4{
     border-bottom: 1px solid;
     font-size: 20px;
 }
-.registerUser, .registerPassword{
+.registerEmail, .registerPassword{
     width: 95%;
     border: 1px solid #017bab;
     margin-bottom: 15px;

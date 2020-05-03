@@ -30,7 +30,7 @@ class Login extends Component {
     return (
       <div className="login-container">
         <Formik
-          initialValues={{ name: "", password: "" }}
+          initialValues={{ email: "", password: "" }}
           onSubmit={this.getLogin}
         >
           {({ handleSubmit }) => (
@@ -38,18 +38,19 @@ class Login extends Component {
               <div className="containerLogin">
                 <h5> Sign in to SchoolApp</h5>
                 <div className="login">
-                  <Field
-                    type="text"
-                    className="user"
-                    name="name"
-                    placeholder="Name"
+                <Field
+                    type="email"
+                    id ="emailLogin"
+                    name="email"
+                    placeholder="Email"
                   />
                   <Field
                     type="password"
-                    className="password"
+                    id ="passwordLogin"
                     name="password"
                     placeholder="Password"
                   />
+                  
                   {!this.props.isLoading ? (
                     <button type="submit" className="btnLogin">
                       Sign In
