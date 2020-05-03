@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 class Register extends Component {
     render() {
         return (
+            <div className= 'register-container'>
             <Formik
 
                 initialValues={{ name: "", password: "" }}
@@ -28,7 +29,7 @@ class Register extends Component {
                                 <Field
                                     type="text"
                                     className="registerPassword"
-                                    name="name"
+                                    name="password"
                                     placeholder="Password"
                                 ></Field>
                            
@@ -40,6 +41,7 @@ class Register extends Component {
                     </Form>
                 )}
             </Formik>
+            </div>
         );
     }
 }

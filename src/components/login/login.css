@@ -27,6 +27,15 @@ h5{
     border-bottom: 1px solid;
     font-size: 20px;
 }
+.clipLoader{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 500px;
+}
+.bad-credentials{
+    display: flex;
+    justify-content: center;
+}
 .user, .password{
     width: 95%;
     border: 1px solid #017bab;

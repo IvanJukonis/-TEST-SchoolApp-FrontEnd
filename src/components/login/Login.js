@@ -56,11 +56,11 @@ class Login extends Component {
                     </button>
                   ) : (
                       //Barrita que carga
-                      <ClipLoader size={75} color={"white"} loading />
+                      <ClipLoader  size={25} color={"white"} loading />
                     )}
                   <div>
                     {this.props.failedLogin ? (
-                      <div id="bad-credentials">BAD CREDENTIALS</div>
+                      <div className="bad-credentials">BAD CREDENTIALS</div>
                     ) : null}
                   </div>
                 </div>
