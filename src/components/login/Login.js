@@ -21,7 +21,7 @@ class Login extends Component {
       //si las props estan autorizadas de redux
       if (this.props.isAuth) {
         //te tira al home privado
-        this.props.history.push("/home");
+        this.props.history.push("/menu");
       }
     });
   };
