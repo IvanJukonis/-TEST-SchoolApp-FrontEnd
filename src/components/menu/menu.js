@@ -9,28 +9,83 @@ class Menu extends Component {
   render() {
     return (
       <div className="containerMenu">
-        <div className="titleMenu">
-          <h3> Menu</h3>
-        </div>
+        <table class="content-table-student">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Last name</th>
+              <th>Age</th>
+              <th>Class</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Domenic</td>
+              <td>88,110</td>
+              <td>dcode</td>
+            </tr>
+            <tr class="active-row-student">
+              <td>2</td>
+              <td>Sally</td>
+              <td>72,400</td>
+              <td>Students</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Nick</td>
+              <td>52,300</td>
+              <td>dcode</td>
+            </tr>
+          </tbody>
+          <div className="buttonsStudent">
+            <button className="btnAddStudent">Agregar</button>
+            <button className="btnModStudent"> Modificar</button>
+            <button className="btnDelStudent">Eliminar</button>
+          </div>
+        </table>
 
-        <div className="containerLeft">
-          <h3>Students</h3>
-        </div>
+        <table class="content-table-mark">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Last name</th>
+              <th>Subject</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Domenic</td>
+              <td>88,110</td>
+              <td>dcode</td>
+            </tr>
+            <tr class="active-row-mark">
+              <td>2</td>
+              <td>Sally</td>
+              <td>72,400</td>
+              <td>Students</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Nick</td>
+              <td>52,300</td>
+              <td>dcode</td>
+            </tr>
+          </tbody>
+          <div className="buttonsMark">
+            <button className="btnAddMark">Agregar</button>
+            <button className="btnModMark"> Modificar</button>
+            <button className="btnDelMark">Eliminar</button>
+          </div>
 
-        <div className="buttonsLeft">
-          <button className="btnAddLeft">Agregar</button>
-          <button className="btnModLeft"> Modificar</button>
-          <button className="btnDelLeft">Eliminar</button>
-        </div>
-        <div className="containerRight">
-          <h3>Marks</h3>
-        </div>
-
-        <div className="buttonsRight">
-          <button className="btnAddRight">Agregar</button>
-          <button className="btnModRight"> Modificar</button>
-          <button className="btnDelRight">Eliminar</button>
-        </div>
+          <div className="buttonLogOut">
+            <Link className="btnLogOut" to="/login" onClick={this.props.logOut}>
+              Log Out
+            </Link>
+          </div>
+        </table>
       </div>
     );
   }
