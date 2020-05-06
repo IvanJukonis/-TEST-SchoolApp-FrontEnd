@@ -9,7 +9,7 @@ class Menu extends Component {
   render() {
     return (
       <div className="containerMenu">
-        <table class="content-table-student">
+        <table className="content-table-student">
           <thead>
             <tr>
               <th>Name</th>
@@ -25,7 +25,7 @@ class Menu extends Component {
               <td>88,110</td>
               <td>dcode</td>
             </tr>
-            <tr class="active-row-student">
+            <tr className="active-row-student">
               <td>2</td>
               <td>Sally</td>
               <td>72,400</td>
@@ -38,14 +38,55 @@ class Menu extends Component {
               <td>dcode</td>
             </tr>
           </tbody>
-          <div className="buttonsStudent">
-            <button className="btnAddStudent">Agregar</button>
-            <button className="btnModStudent"> Modificar</button>
-            <button className="btnDelStudent">Eliminar</button>
-          </div>
         </table>
+        <div className="buttonsStudent">
+          <a href="#modal" className="showPopUp">
+            Agregar
+          </a>
+          <aside id="modal" className="modal">
+            <div className="contentModal">
+              <header>
+                <a href="#" className="closeModal">
+                  X
+                </a>
+                <h2>Add student</h2>
+              </header>
+              <article>
+                <input
+                  className="nameStudent"
+                  type="text"
+                  name="nameStudent"
+                  placeholder="Name"
+                />
+                <input
+                  className="lastNameStudent"
+                  type="text"
+                  name="lastNameStudent"
+                  placeholder="Last name"
+                />
+                <input
+                  className="ageStudent"
+                  type="text"
+                  name="ageStudent"
+                  placeholder="Age"
+                />
+                <input
+                  className="classStudent"
+                  type="text"
+                  name="classStudent"
+                  placeholder="Class"
+                />
+                <button className="btnAddStudent">Add</button>
+              </article>
+            </div>
+            <a href="#" className="btnCloseModal"></a>
+          </aside>
 
-        <table class="content-table-mark">
+          <button className="btnModStudent"> Modificar</button>
+          <button className="btnDelStudent">Eliminar</button>
+        </div>
+
+        <table className="content-table-mark">
           <thead>
             <tr>
               <th>Name</th>
@@ -61,7 +102,7 @@ class Menu extends Component {
               <td>88,110</td>
               <td>dcode</td>
             </tr>
-            <tr class="active-row-mark">
+            <tr className="active-row-mark">
               <td>2</td>
               <td>Sally</td>
               <td>72,400</td>
@@ -74,18 +115,59 @@ class Menu extends Component {
               <td>dcode</td>
             </tr>
           </tbody>
-          <div className="buttonsMark">
-            <button className="btnAddMark">Agregar</button>
-            <button className="btnModMark"> Modificar</button>
-            <button className="btnDelMark">Eliminar</button>
-          </div>
-
-          <div className="buttonLogOut">
-            <Link className="btnLogOut" to="/login" onClick={this.props.logOut}>
-              Log Out
-            </Link>
-          </div>
         </table>
+        <div className="buttonsMark">
+          <a href="#modalMark" className="showPopUpMark">
+            Agregar
+          </a>
+          <aside id="modalMark" className="modalMark">
+            <div className="contentModalMark">
+              <header>
+                <a href="#" className="closeModalMark">
+                  X
+                </a>
+                <h2>Add mark</h2>
+              </header>
+              <article>
+                <input
+                  className="nameStudentMark"
+                  type="text"
+                  name="nameStudent"
+                  placeholder="Name"
+                />
+                <input
+                  className="lastNameStudentMark"
+                  type="text"
+                  name="lastNameStuden"
+                  placeholder="Last name"
+                />
+                <input
+                  className="subjectMark"
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                />
+                <input
+                  className="noteMark"
+                  type="text"
+                  name="note"
+                  placeholder="Note"
+                />
+
+                <button id="btnAddMark">Add</button>
+              </article>
+            </div>
+            <a href="#" className="btnCloseModalMark"></a>
+          </aside>
+          <button className="btnModMark"> Modificar</button>
+          <button className="btnDelMark">Eliminar</button>
+        </div>
+
+        <div className="buttonLogOut">
+          <Link className="btnLogOut" to="/login" onClick={this.props.logOut}>
+            Log Out
+          </Link>
+        </div>
       </div>
     );
   }
