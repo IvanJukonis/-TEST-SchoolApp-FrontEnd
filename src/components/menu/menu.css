@@ -1,89 +1,92 @@
 .containerMenu {
-    display: flex;
-    justify-content: center;
-    height: 950px;
-    width: auto;
-    align-content: center;
-    background-color: #bba;
-    
-   
-  }
-  .titleMenu{
-    position: relative;
-    left: 47%;
-    font-size: 40px;
-    bottom: 40px;
-  }
-  h3{
-    justify-content: center;
-    padding: 5px 65px;
-    text­align: justify;
-  }
-  .containerLeft{
-    display:flex;
-    justify-content: left;
-    margin-top: 100px;
-    height: 500px;
-    width: 200px;
-    margin-top: 100px;
-    margin-left: auto;
-    margin-bottom: auto;
-    border: 1px solid #000000;
-    box-shadow: 2px 5px 37px #000;
-    background-color: silver;
-  }
-  .containerRight{
-    display:flex;
-    justify-content: right;
-    margin-top: 100px;
-    height: 500px;
-    width: 200px;
-    margin-top: 100px;
-    margin-left: auto;
-    margin-bottom: auto;
-    border: 1px solid #000000;
-    box-shadow: 2px 5px 37px #000;
-    background-color: silver;
-  }
-  .buttonsLeft, .buttonsRight{
-    position: relative;
-    margin-top: 70px;
-    margin-left: 10px;
-    margin-right: 300px;
-    display: flex;
-    flex-direction: column;
-    
-    
-    
-  }
-  .btnAddLeft, .btnModLeft, .btnDelLeft{
-    margin-top: 30px;
-    height: 40px;
-    background: #017bab;
-    border: none;
-    color: white;
-    border-radius: 12px;
-    box-shadow: 2px 5px 37px #000;
-  }
+  display: flex;
+  flex-direction: column;
+  top: 0px;
+  height: 950px;
   
-  .btnAddRight, .btnModRight, .btnDelRight{
-    margin-top: 30px;
-    height: 40px;
-    background: #017bab;
-    border: none;
-    color: white;
-    border-radius: 12px;
-    box-shadow: 2px 5px 37px #000;
-  }
+}
 
-  @media (max-width: 934px) {
-    .containerLeft {
-        margin-left: 700px;
-        width: 100%;
-    }
-    .containerRight {
-        margin-right: 50px;
-        width: 100%;
-    }
+* {
+  font-family: sans-serif; /* Change your font family */
+}
+
+.content-table-student, .content-table-mark {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table-student thead tr, .content-table-mark thead tr {
+  background-color: #017bab;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table-student th,
+.content-table-student td, .content-table-mark th, .content-table-mark td  {
+  padding: 12px 15px;
+}
+
+.content-table-student tbody tr, .content-table-mark tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table-student tbody tr:nth-of-type(even), .content-table-mark tbody tr:nth-of-type(even){
+  background-color: #f3f3f3;
+}
+
+.content-table-student tbody tr:last-of-type, .content-table-mark tbody tr:last-of-type{
+  border-bottom: 2px solid #017bab;
+}
+
+.content-table-student tbody tr.active-row-student, .content-table-mark tbody tr.active-row-mark{
+  font-weight: bold;
+  color: #009879;
+}
+
+.btnAddStudent,
+.btnModStudent,
+.btnDelStudent {
+  margin: 15px;
+  height: 40px;
+  background: #017bab;
+  border: none;
+  color: white;
+  border-radius: 12px;
+  
+}
+
+.btnAddMark,
+.btnModMark,
+.btnDelMark {
+  
+  margin: 15px;
+  height: 40px;
+  background: #017bab;
+  border: none;
+  color: white;
+  border-radius: 12px;
+}
+
+.buttonLogOut{
+    position: relative;
+    left: 100%;
     
 }
+.btnLogOut{
+    font-family: Arial;
+    text-decoration: none;
+    float: left;
+    padding: 10px 20px 10px 20px;
+    background-color: #7e271b;
+    color: #fff;
+    border-radius: 15px;
+    margin: 10px;
+    font-size: 15px;
+}
+
