@@ -12,7 +12,11 @@ class Menu extends Component {
         <div className="titleMenu">
           <h3> Menu</h3>
         </div>
-
+        <div className='buttonmenu'>
+          <Link to='/home' onClick={this.props.logOut}>
+            Logout
+          </Link>
+        </div>
         <div className="containerLeft">
           <h3>Students</h3>
         </div>
