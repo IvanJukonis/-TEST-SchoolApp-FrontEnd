@@ -1,18 +1,23 @@
 import "./addStudent.css";
 import React, { Component } from "react";
-import { isAuth, logOut } from "../../redux/actions/login";
 import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { postStudent } from "../../redux/actions/student";
 
 class AddStudent extends Component {
   render() {
     return (
-      <Formik>
-        <Form>
+      <Formik
+          initialValues={{name: "", lastname: "", age:"", class:"" }}
+          onSubmit={(values) => {
+            console.log('submitiaste')
+            this.props.postStudent(values);
+          }}
+        >
+        {({ handleSubmit }) => (
+        <Form onSubmit={handleSubmit}>
           <div className="containerAddStudent">
             <h4> Sign up to SchoolApp</h4>
-
             <Field
               type="text"
               className="nameStudent"
@@ -44,8 +49,10 @@ class AddStudent extends Component {
             <button className="btnAddStudent" type="submit">
               Add
             </button>
+            
           </div>
         </Form>
+        )}
       </Formik>
     );
   }
@@ -58,9 +65,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = {
+/*const mapDispatchToProps = {
   isAuth,
   logOut,
-};
+};*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddStudent);
+export default connect(mapStateToProps, {postStudent})(AddStudent);

@@ -32,7 +32,7 @@ class Register extends Component {
                   className="registerPassword"
                   name="password"
                   placeholder="Password"
-                ></Field>
+                />
                 
                 <button className="btnSubmit" type="submit">
                     Sign Up
