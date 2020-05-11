@@ -13,7 +13,7 @@ import {
   } from '../actions/types'
   
   const initialState = {
-    items: [],
+    students: [],
     size: '',
     error: null,
     isLoading: false,
@@ -27,7 +27,7 @@ import {
       case FETCH_STUDENTS:
         return {
           ...state,
-          items: action.payload,
+          students: action.payload,
           adminActions: false
         }
   
@@ -43,7 +43,7 @@ import {
         return {
           ...state,
           isLoading: false,
-          items: students
+          students: students
         }
       }
   
@@ -72,7 +72,7 @@ import {
         return {
           ...state,
           isLoading: false,
-          items: newStudentUpdate
+          students: newStudentUpdate
         }
       }
   
@@ -98,16 +98,16 @@ import {
   
       case DELETE_STUDENTS_SUCCESS:
         console.log(action.payload)
-        const newStudent = [...state.items]
-        const studentToDelete = newStudents.findIndex(
+        const newStudent = [...state.students]
+        const studentToDelete = newStudent.findIndex(
           ele => ele._id === action.payload._id
         )
   
-        newStudents.splice(studentToDelete, 1)
+        newStudent.splice(studentToDelete, 1)
         return {
           ...state,
           isLoading: false,
-          items: newStudents
+          students: newStudent
         }
   
       case DELETE_STUDENTS_ERROR:
