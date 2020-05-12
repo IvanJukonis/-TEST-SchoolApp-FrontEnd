@@ -4,7 +4,6 @@
   top: 0px;
   height: 950px;
 }
-
 * {
   font-family: sans-serif; /* Change your font family */
 }
@@ -56,112 +55,67 @@
   color: #009879;
 }
 
-.showPopUp,
-.showPopUpMark,
-.btnModStudent,
-.btnDelStudent {
-  font-family: Arial;
-  text-decoration: none;
-  padding: 10px 10px;
-  background-color: #017bab;
-  color: #fff;
-  border-radius: 15px;
-  margin: 10px;
-  font-size: 15px;
-  text-decoration: none;
-}
-
-.btnAddStudent {
-  margin: 15px;
-  height: 40px;
-  width: 170px;
-  background: silver;
-  border: none;
-  color: black;
-  border-radius: 12px;
-  text-decoration: none;
-}
-#btnAddMark {
-  margin: 15px;
-  height: 40px;
-  width: 170px;
-  background: silver;
-  border: none;
-  color: black;
-  border-radius: 12px;
-  text-decoration: none;
-}
-
-.btnAddMark,
-.btnModMark,
-.btnDelMark {
-  margin: 15px;
-  height: 40px;
-  background: #017bab;
-  border: none;
-  color: white;
-  border-radius: 12px;
-  text-decoration: none;
-}
-
-.buttonLogOut {
-  position: relative;
-  left: 100%;
-}
-.btnLogOut {
-  font-family: Arial;
-  text-decoration: none;
-  float: left;
-  padding: 10px 20px 10px 20px;
-  background-color: #7e271b;
-  color: #fff;
-  border-radius: 15px;
-  margin: 10px;
-  font-size: 15px;
-}
-
-.modal,
-.modalMark {
+.overlayDisabled {
+  display: flex;
+  visibility: hidden;
   position: fixed;
-  top: -100vh;
+  top: 0;
+  bottom: 0;
   left: 0;
-  z-index: 999999;
-  background: silver;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-.modal,
-.contentModal,
-.modalMark,
-.contentModalMark {
-  width: 100%;
-  max-width: 500px;
-  position: fixed;
-  left: 50%;
-  top: -100vh;
-  transition: top 0.35s ease;
-  margin-left: -250px;
-  background: white;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 2px;
-  z-index: 99999999;
-  box-shadow: 7px 13px 37px #000;
+  right: 0;
+  background: rgba(0,0,0,.3);
 }
 
-.modalMark h2 {
-  padding: 0.5em;
-  text-align: center;
-  color: #4444;
-  margin: 0;
+.overlayEnabled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,.3);
 }
-.nameStudent,
-.lastNameStudent,
-.ageStudent,
-.classStudent,
-.nameStudentMark,
-.lastNameStudentMark,
-.subjectMark,
-.noteMark {
+
+.popUpDisabled {
+  position: absolute;
+  visibility: hidden;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 0px;
+  
+}
+
+.popUpEnabled {
+  position: absolute;
+  visibility: visible;
+  width: 350px;
+  background-color:transparent;
+}
+.containerAddStudent{
+ margin-left: 500px;
+  width: 400px;
+  height: 340px;
+  background-color: #4e4d4d;
+  
+  box-shadow: 7px 13px 37px #000;
+  padding: 20px 30px;
+  border-top: 4px solid #017bab;
+  color: white;
+
+}
+h4{
+  margin: 0;
+  text-align: center;
+  height: 40px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid;
+  font-size: 20px;
+}
+.nameStudent, .lastnameStudent, .ageStudent, .classStudent{
   width: 95%;
   border: 1px solid #017bab;
   margin-bottom: 15px;
@@ -172,56 +126,12 @@
   color: #fff;
   border-radius: 12px;
 }
-.modal article,
-.modalMark article {
-  text-align: center;
-  height: 300px;
-  background-color: #017bab;
-}
-.closeModal,
-.closeModalMark {
-  color: #e74c3c;
-  position: absolute;
-  top: 0;
-  right: 0.37em;
-  margin: 0;
-  padding: 5px;
-  font-weight: bold;
-  font-size: 15px;
-  text-decoration: none;
-}
-
-.modal a:hover,
-.modalMark a:hover {
-  color: #c0392b;
-}
-
-.modal:target,
-.modalMark:target {
-  opacity: 1;
-  top: 0;
-}
-
-.modal .btnCloseModal,
-.modalMark .btnCloseModalMark {
-  position: absolute;
-  left: 0;
+.btnAddStudent{
   width: 100%;
-  height: 100%;
-  z-index: 9999999;
-}
-.modal:target .contentModal,
-.modalMark:target .contentModalMark {
-  top: 50px;
-  transition: top 0.35s ease;
-}
-
-@media (max-width: 796px) {
-  .modal .contentModal,
-  .modalMark .contentModalMark {
-    width: 90%;
-    max-width: none;
-    left: 5%;
-    margin-left: 0;
-  }
+  height: 40px;
+  background: #017bab;
+  border: none;
+  color: white;
+  margin-bottom: 16px;
+  border-radius: 12px;
 }

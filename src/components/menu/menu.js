@@ -5,10 +5,63 @@ import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import { postStudent } from "../../redux/actions/student";
+
 class Menu extends Component {
   render() {
+   
     return (
       <div className="containerMenu">
+        <div className="overlayEnabled"></div>
+
+        <div className="popUpEnabled">
+          <Formik
+            initialValues={{ name: "", lastname: "", age: "", class: "" }}
+            onSubmit={(values) => {
+              console.log("submitiaste");
+              this.props.postStudent(values);
+            }}
+          >
+            {({ handleSubmit }) => (
+              <Form onSubmit={handleSubmit}>
+                <div className="containerAddStudent">
+                  <h4> Add Students</h4>
+                  <Field
+                    type="text"
+                    className="nameStudent"
+                    name="student"
+                    placeholder="Name"
+                  />
+
+                  <Field
+                    type="text"
+                    className="lastnameStudent"
+                    name="lastname"
+                    placeholder="Last name"
+                  />
+
+                  <Field
+                    type="text"
+                    className="ageStudent"
+                    name="age"
+                    placeholder="Age"
+                  />
+
+                  <Field
+                    type="text"
+                    className="classStudent"
+                    name="class"
+                    placeholder="Class"
+                  />
+
+                  <button className="btnAddStudent" type="submit">
+                    Add
+                  </button>
+                </div>
+              </Form>
+            )}
+          </Formik>
+        </div>
         <table className="content-table-student">
           <thead>
             <tr>
@@ -38,53 +91,8 @@ class Menu extends Component {
               <td>dcode</td>
             </tr>
           </tbody>
+          <button>Agregar</button>
         </table>
-        <div className="buttonsStudent">
-          <a href="#modal" className="showPopUp">
-            Agregar
-          </a>
-          <aside id="modal" className="modal">
-            <div className="contentModal">
-              <header>
-                <a href="#" className="closeModal">
-                  X
-                </a>
-                <h2>Add student</h2>
-              </header>
-              <article>
-                <input
-                  className="nameStudent"
-                  type="text"
-                  name="nameStudent"
-                  placeholder="Name"
-                />
-                <input
-                  className="lastNameStudent"
-                  type="text"
-                  name="lastNameStudent"
-                  placeholder="Last name"
-                />
-                <input
-                  className="ageStudent"
-                  type="text"
-                  name="ageStudent"
-                  placeholder="Age"
-                />
-                <input
-                  className="classStudent"
-                  type="text"
-                  name="classStudent"
-                  placeholder="Class"
-                />
-                <button className="btnAddStudent">Add</button>
-              </article>
-            </div>
-            <a href="#" className="btnCloseModal"></a>
-          </aside>
-
-          <button className="btnModStudent"> Modificar</button>
-          <button className="btnDelStudent">Eliminar</button>
-        </div>
 
         <table className="content-table-mark">
           <thead>
@@ -115,53 +123,8 @@ class Menu extends Component {
               <td>dcode</td>
             </tr>
           </tbody>
+          <button>Agregar</button>
         </table>
-        <div className="buttonsMark">
-          <a href="#modalMark" className="showPopUpMark">
-            Agregar
-          </a>
-          <aside id="modalMark" className="modalMark">
-            <div className="contentModalMark">
-              <header>
-                <a href="#" className="closeModalMark">
-                  X
-                </a>
-                <h2>Add mark</h2>
-              </header>
-              <article>
-                <input
-                  className="nameStudentMark"
-                  type="text"
-                  name="nameStudent"
-                  placeholder="Name"
-                />
-                <input
-                  className="lastNameStudentMark"
-                  type="text"
-                  name="lastNameStuden"
-                  placeholder="Last name"
-                />
-                <input
-                  className="subjectMark"
-                  type="text"
-                  name="subject"
-                  placeholder="Subject"
-                />
-                <input
-                  className="noteMark"
-                  type="text"
-                  name="note"
-                  placeholder="Note"
-                />
-
-                <button id="btnAddMark">Add</button>
-              </article>
-            </div>
-            <a href="#" className="btnCloseModalMark"></a>
-          </aside>
-          <button className="btnModMark"> Modificar</button>
-          <button className="btnDelMark">Eliminar</button>
-        </div>
 
         <div className="buttonLogOut">
           <Link className="btnLogOut" to="/login" onClick={this.props.logOut}>
@@ -183,6 +146,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   isAuth,
   logOut,
+  postStudent,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

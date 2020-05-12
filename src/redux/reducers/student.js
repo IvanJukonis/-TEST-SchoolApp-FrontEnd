@@ -1,15 +1,15 @@
 import {
-    FETCH_STUDENTS,
-    ADD_STUDENTS_PENDING,
-    ADD_STUDENTS_SUCCESS,
-    ADD_STUDENTS_ERROR,
-    UPDATE_STUDENTS_PENDING,
-    UPDATE_STUDENTS_SUCCESS,
-    UPDATE_STUDENTS_ERROR,
-    DELETE_STUDENTS_PENDING,
-    DELETE_STUDENTS_SUCCESS,
-    DELETE_STUDENTS_ERROR,
-    SET_SELECTED_STUDENTS_ID
+    FETCH_STUDENT,
+    ADD_STUDENT_PENDING,
+    ADD_STUDENT_SUCCESS,
+    ADD_STUDENT_ERROR,
+    UPDATE_STUDENT_PENDING,
+    UPDATE_STUDENT_SUCCESS,
+    UPDATE_STUDENT_ERROR,
+    DELETE_STUDENT_PENDING,
+    DELETE_STUDENT_SUCCESS,
+    DELETE_STUDENT_ERROR,
+    SET_SELECTED_STUDENT_ID
   } from '../actions/types'
   
   const initialState = {
@@ -24,20 +24,20 @@ import {
   
   export default function(state = initialState, action) {
     switch (action.type) {
-      case FETCH_STUDENTS:
+      case FETCH_STUDENT:
         return {
           ...state,
           students: action.payload,
           adminActions: false
         }
   
-      case ADD_STUDENTS_PENDING:
+      case ADD_STUDENT_PENDING:
         return {
           ...state,
           isLoading: true
         }
   
-      case ADD_STUDENTS_SUCCESS: {
+      case ADD_STUDENT_SUCCESS: {
         const newStudent = action.payload.student.data
         const students = [...state.items, newStudent]
         return {
@@ -47,7 +47,7 @@ import {
         }
       }
   
-      case ADD_STUDENTS_ERROR:
+      case ADD_STUDENT_ERROR:
         return {
           ...state,
           isLoading: false,
@@ -55,13 +55,13 @@ import {
           message: action.payload.message
         }
   
-      case UPDATE_STUDENTS_PENDING:
+      case UPDATE_STUDENT_PENDING:
         return {
           ...state,
           isLoading: true
         }
   
-      case UPDATE_STUDENTS_SUCCESS: {
+      case UPDATE_STUDENT_SUCCESS: {
         console.log(action.payload)
         const newStudentUpdate = [...state.items]
         const studentToUpdate = newStudentUpdate.findIndex(
@@ -76,27 +76,27 @@ import {
         }
       }
   
-      case UPDATE_STUDENTS_ERROR:
+      case UPDATE_STUDENT_ERROR:
         return {
           ...state,
           isLoading: false,
           message: action.payload.message
         }
   
-      case SET_SELECTED_STUDENTS_ID: {
+      case SET_SELECTED_STUDENT_ID: {
         return {
           ...state,
           studentSelected: action.payload
         }
       }
   
-      case DELETE_STUDENTS_PENDING:
+      case DELETE_STUDENT_PENDING:
         return {
           ...state,
           isLoading: true
         }
   
-      case DELETE_STUDENTS_SUCCESS:
+      case DELETE_STUDENT_SUCCESS:
         console.log(action.payload)
         const newStudent = [...state.students]
         const studentToDelete = newStudent.findIndex(
@@ -110,7 +110,7 @@ import {
           students: newStudent
         }
   
-      case DELETE_STUDENTS_ERROR:
+      case DELETE_STUDENT_ERROR:
         return {
           ...state,
           isLoading: false,

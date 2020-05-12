@@ -1,5 +1,5 @@
 import {
-  FETCH_STUDENTS,
+  FETCH_STUDENT,
   ADD_STUDENT_PENDING,
   ADD_STUDENT_SUCCESS,
   ADD_STUDENT_ERROR,
@@ -12,7 +12,7 @@ import {
   SET_SELECTED_STUDENT_ID
 } from './types'
 
-import store from '../store'
+import store from '../store/store'
 
 //GET STUDENTS
 export const fetchStudents = () => dispatch => {
@@ -22,7 +22,7 @@ export const fetchStudents = () => dispatch => {
     .then(data => {
       console.log(data)
       return dispatch({
-        type: FETCH_STUDENTS,
+        type: FETCH_STUDENT,
         payload: data
       })
     })
