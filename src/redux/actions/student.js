@@ -18,7 +18,6 @@ import store from '../store/store'
 export const fetchStudents = () => dispatch => {
   fetch('http://localhost:5000/students')
     .then(res => res.json())
-    //PREGUNTAR DE DONDE SALE ESTE DATA
     .then(data => {
       console.log(data)
       return dispatch({
@@ -35,7 +34,8 @@ export const postStudent = student => {
     dispatch({
       type: ADD_STUDENT_PENDING
     })
-    const { token } = store.getState()
+    //de .users traigo todo el modulo usuarios (gracias al combinetools)
+    const { token } = store.getState().users
     const options = {
       timeout: 25000,
       method: 'POST',

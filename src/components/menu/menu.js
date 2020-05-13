@@ -8,13 +8,19 @@ import { Link } from "react-router-dom";
 import { postStudent } from "../../redux/actions/student";
 
 class Menu extends Component {
+  constructor(props) { 
+    super(props);
+    this.state = {
+       check: false
+    };
+  };
   render() {
-   
+   console.log(this.state.check)
     return (
       <div className="containerMenu">
-        <div className="overlayEnabled"></div>
+        <div className={this.state.check ? "overlayEnabled" : "overlayDisabled"}></div>
 
-        <div className="popUpEnabled">
+        <div className={this.state.check ? "popUpEnabled" : "popUpDisabled"}>
           <Formik
             initialValues={{ name: "", lastname: "", age: "", class: "" }}
             onSubmit={(values) => {
@@ -29,7 +35,7 @@ class Menu extends Component {
                   <Field
                     type="text"
                     className="nameStudent"
-                    name="student"
+                    name="name"
                     placeholder="Name"
                   />
 
@@ -91,7 +97,7 @@ class Menu extends Component {
               <td>dcode</td>
             </tr>
           </tbody>
-          <button>Agregar</button>
+          <button onClick={() => this.setState(prevState => ({ check: !prevState.check}))}>Agregar</button>
         </table>
 
         <table className="content-table-mark">
@@ -148,5 +154,6 @@ const mapDispatchToProps = {
   logOut,
   postStudent,
 };
-
+//mapstatetoprops = lo que vas a leer
+//mapdispatchtoprops = acciones q vas a usar
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);
