@@ -133,7 +133,12 @@
   background-color:transparent;
 }
 .containerAddStudent{
- margin-left: 500px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top:10%;
+  left: 35%;
   width: 400px;
   height: 400px;
   background-color: #4e4d4d;
@@ -143,7 +148,12 @@
   color: white;
 }
 .containerAddMarks{
-  margin-left: 500px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top:10%;
+  left: 35%;
   width: 400px;
   height: 340px;
   background-color: #4e4d4d;
@@ -151,6 +161,30 @@
   padding: 20px 30px;
   border-top: 4px solid #017bab;
   color: white;
+}
+.btnAdd{
+  font-family: Arial;
+  text-decoration: none;
+  float: left;
+  padding: 10px 20px 10px 20px;
+  background-color: #2175bc;
+  color: #fff;
+  border-radius: 15px;
+  margin: 10px;
+  font-size: 15px;
+  box-shadow: 7px 13px 37px #000;
+}
+.btnLogOut{
+  font-family: Arial;
+  text-decoration: none;
+  float: left;
+  padding: 10px 20px 10px 20px;
+  background-color: #9c2819;
+  color: #fff;
+  border-radius: 15px;
+  margin: 10px;
+  font-size: 15px;
+  box-shadow: 7px 13px 37px #000;
 }
 h4{
   margin: 0;

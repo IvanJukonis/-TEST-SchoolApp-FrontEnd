@@ -5,7 +5,8 @@ import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { postStudent } from "../../redux/actions/student";
+
+import { postStudent, fetchStudents } from "../../redux/actions/student";
 
 class Menu extends Component {
   constructor(props) {
@@ -16,8 +17,14 @@ class Menu extends Component {
     };
 
   };
+
+  componentDidMount() { //el fetch va a al back y trae los estudiantes
+    this.props.fetchStudents()
+  }
+
+
   render() {
-    console.log(this.state.check)
+    console.log(this.props.studentList)
     return (
       <div className="containerMenu">
         <div className={this.state.check ? "overlayEnabled" : "overlayDisabled"}></div>
@@ -27,13 +34,14 @@ class Menu extends Component {
             onSubmit={(values) => {
               console.log("submitiaste");
               this.props.postStudent(values);
+              this.setState(prevState => ({ check: !prevState.check }))
             }}
           >
             {({ handleSubmit }) => (
               <Form onSubmit={handleSubmit}>
                 <div className="containerAddStudent">
                   <h4> Add Students</h4>
-                
+
                   <Field
                     type="text"
                     className="nameStudent"
@@ -65,10 +73,11 @@ class Menu extends Component {
                   <button className="btnAddStudent" type="submit">
                     Add
                   </button>
-                  <button className="btnAddStudent" onClick={() => this.setState(prevState => ({ check: !prevState.check }))}>Back</button>
-                  
+                  <button type="button" className="btnAddStudent" onClick={() => this.setState(prevState => ({ check: !prevState.check }))}>Back</button>
                 </div>
+
               </Form>
+
             )}
           </Formik>
         </div>
@@ -78,6 +87,7 @@ class Menu extends Component {
             initialValues={{ student: "", subject: "", note: "" }}
             onSubmit={(values) => {
               this.props.postQualification(values);
+              this.setState(prevState => ({ check2: !prevState.check2 }))
             }}
           >
             {({ handleSubmit }) => (
@@ -106,10 +116,10 @@ class Menu extends Component {
                     placeholder="Note"
                   />
 
-                  <button className="btnAddMark" type="submit" onClick="close_window1()">
+                  <button className="btnAddMark" type="submit" >
                     Add
                    </button>
-                   <button className="btnAddMark" onClick={() => this.setState(prevState => ({ check2: !prevState.check2 }))}>Back</button>
+                  <button type="button" className="btnAddMark" onClick={() => this.setState(prevState => ({ check2: !prevState.check2 }))}>Back</button>
                 </div>
               </Form>
             )}
@@ -118,33 +128,30 @@ class Menu extends Component {
         <table className="content-table-student">
           <thead>
             <tr>
-              <th>Name</th>
+              <th>id</th>
+              <th>name</th>
               <th>Last name</th>
               <th>Age</th>
               <th>Class</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Domenic</td>
-              <td>88,110</td>
-              <td>dcode</td>
-            </tr>
-            <tr className="active-row-student">
-              <td>2</td>
-              <td>Sally</td>
-              <td>72,400</td>
-              <td>Students</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Nick</td>
-              <td>52,300</td>
-              <td>dcode</td>
-            </tr>
+            {
+              this.props.studentList && this.props.studentList.map((student) => { // muestra los estudiantes si existen y sino no muestra nada, por cada estudiante devuelve una fila "tr", cada vez que se agrega uno nuevo se ejecuta otra vez el map
+                return (
+                  <tr>
+                    <td>{student._id}</td>
+                    <td>{student.name}</td>
+                    <td>{student.lastname}</td>
+                    <td>{student.age}</td>
+                    <td>{student.class}</td>
+                  </tr>
+                )
+              })
+            }
+
           </tbody>
-          <button onClick={() => this.setState(prevState => ({ check: !prevState.check }))}>Agregar</button>
+          <button className="btnAdd" onClick={() => this.setState(prevState => ({ check: !prevState.check }))}>Add</button>
         </table>
 
         <table className="content-table-mark">
@@ -176,7 +183,7 @@ class Menu extends Component {
               <td>dcode</td>
             </tr>
           </tbody>
-          <button onClick={() => this.setState(prevState => ({ check2: !prevState.check2 }))}>Agregar</button>
+          <button className="btnAdd" onClick={() => this.setState(prevState => ({ check2: !prevState.check2 }))}>Add</button>
         </table>
 
         <div className="buttonLogOut">
@@ -193,6 +200,7 @@ const mapStateToProps = (state) => {
   return {
     isLoading: state.isLoading,
     isAuth: state.isAuth,
+    studentList: state.students.students // trae los estudiantes
   };
 };
 
@@ -200,6 +208,7 @@ const mapDispatchToProps = {
   isAuth,
   logOut,
   postStudent,
+  fetchStudents
 };
 //mapstatetoprops = lo que vas a leer
 //mapdispatchtoprops = acciones q vas a usar

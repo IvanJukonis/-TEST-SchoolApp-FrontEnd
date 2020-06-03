@@ -27,7 +27,7 @@ import {
       case FETCH_STUDENT:
         return {
           ...state,
-          students: action.payload,
+          students: action.payload.students,
           adminActions: false
         }
   
@@ -38,8 +38,8 @@ import {
         }
   
       case ADD_STUDENT_SUCCESS: {
-        const newStudent = action.payload.student.data
-        const students = [...state.items, newStudent]
+        const newStudent = action.payload.student
+        const students = [...state.students, newStudent]
         return {
           ...state,
           isLoading: false,

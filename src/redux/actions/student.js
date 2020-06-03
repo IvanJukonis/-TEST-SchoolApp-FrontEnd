@@ -57,7 +57,7 @@ export const postStudent = student => {
         return dispatch({
           type: ADD_STUDENT_SUCCESS,
           payload: {
-            student: data
+            student: data.createdStudent
           }
         })
       })
