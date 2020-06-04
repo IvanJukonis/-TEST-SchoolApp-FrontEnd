@@ -10,12 +10,8 @@ class publicHome extends Component {
     return (
       
       <div className='containerHome'>
-        <div className='header'>
-          <div className='title'>
-            <h1 className = 'text1'>School</h1>
-            <h1 className = 'text2'>.</h1>
-            <h1 className = 'text3  '>App</h1>
-          </div>
+        <div>
+          
         </div>
         <ul className='button'>
           <li><Link className='login' to='/Login'>Login</Link></li>
@@ -25,7 +21,8 @@ class publicHome extends Component {
         </ul>
         
         <div className='footer'>
-          creado por santiago 
+          Universidad abierta interamericana<br></br>
+          Proyecto realizado por los alumnos Santiago Ottolini e Ivan Jukonis
         </div>
       </div>
       

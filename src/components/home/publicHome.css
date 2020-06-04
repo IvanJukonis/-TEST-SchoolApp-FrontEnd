@@ -63,6 +63,10 @@ ul {
 }
 
 .footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 90%;
   width: 100%;
   background-color: #4e4d4d;
   color: #fff;
@@ -79,39 +83,3 @@ h1 {
   display: flex;
 }
 
-.text1 {
-  animation: bounce1 0.5s alternate infinite ease-in;
-}
-.text2 {
-  animation: bounce2 0.5s alternate infinite ease-in;
-}
-.text3 {
-  animation: bounce3 0.5s alternate infinite ease-in;
-}
-
-@keyframes bounce1 {
-  0% {
-    transform: translateX(-40%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes bounce2 {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes bounce3 {
-  0% {
-    transform: translateX(40%);
-  }
-  100% {
-    transform: translateX(-10);
-  }
-}

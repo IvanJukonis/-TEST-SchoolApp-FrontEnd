@@ -128,6 +128,7 @@ class Menu extends Component {
         <table className="content-table-student">
           <thead>
             <tr>
+              <th>Select</th>
               <th>id</th>
               <th>name</th>
               <th>Last name</th>
@@ -140,6 +141,7 @@ class Menu extends Component {
               this.props.studentList && this.props.studentList.map((student) => { // muestra los estudiantes si existen y sino no muestra nada, por cada estudiante devuelve una fila "tr", cada vez que se agrega uno nuevo se ejecuta otra vez el map
                 return (
                   <tr>
+                    <td><input type="checkbox"></input></td>
                     <td>{student._id}</td>
                     <td>{student.name}</td>
                     <td>{student.lastname}</td>
@@ -152,11 +154,14 @@ class Menu extends Component {
 
           </tbody>
           <button className="btnAdd" onClick={() => this.setState(prevState => ({ check: !prevState.check }))}>Add</button>
+          <button className="btnModify">Modify</button>
+          <button className="btnDelete">Delete</button>
         </table>
 
         <table className="content-table-mark">
           <thead>
             <tr>
+              <th>Select</th>
               <th>Name</th>
               <th>Last name</th>
               <th>Subject</th>
@@ -165,25 +170,16 @@ class Menu extends Component {
           </thead>
           <tbody>
             <tr>
+              <td><input type="checkbox"></input></td>
               <td>1</td>
               <td>Domenic</td>
               <td>88,110</td>
               <td>dcode</td>
             </tr>
-            <tr className="active-row-mark">
-              <td>2</td>
-              <td>Sally</td>
-              <td>72,400</td>
-              <td>Students</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Nick</td>
-              <td>52,300</td>
-              <td>dcode</td>
-            </tr>
           </tbody>
           <button className="btnAdd" onClick={() => this.setState(prevState => ({ check2: !prevState.check2 }))}>Add</button>
+          <button className="btnModify">Modify</button>
+          <button className="btnDelete">Delete</button>
         </table>
 
         <div className="buttonLogOut">
@@ -191,6 +187,7 @@ class Menu extends Component {
             Log Out
           </Link>
         </div>
+        
       </div>
     );
   }

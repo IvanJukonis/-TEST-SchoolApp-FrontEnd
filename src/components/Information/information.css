@@ -1,0 +1,27 @@
+.containerInformation {
+    display: flex;
+    flex-direction: column;
+    background-color:  #bba;
+    height: 950px;
+    width: 150%;
+    
+  }  
+.titleInformation{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 39%;
+    font-size: 30px;
+    font-family: cursive;
+    
+}
+.informationText{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top:25%;
+    left: 35%;
+    width: 500px;
+    height: 500px;
+    box-shadow: 7px 13px 37px #000;
+}
