@@ -162,7 +162,7 @@
   border-top: 4px solid #017bab;
   color: white;
 }
-.btnAdd{
+.btnAdd, .btnModify, .btnDelete{
   font-family: Arial;
   text-decoration: none;
   float: left;
@@ -174,10 +174,11 @@
   font-size: 15px;
   box-shadow: 7px 13px 37px #000;
 }
+
+
 .btnLogOut{
-  font-family: Arial;
-  text-decoration: none;
-  float: left;
+  position: relative;
+  left: 45%;
   padding: 10px 20px 10px 20px;
   background-color: #9c2819;
   color: #fff;
@@ -185,6 +186,8 @@
   margin: 10px;
   font-size: 15px;
   box-shadow: 7px 13px 37px #000;
+  font-family: Arial;
+  text-decoration: none;
 }
 h4{
   margin: 0;
