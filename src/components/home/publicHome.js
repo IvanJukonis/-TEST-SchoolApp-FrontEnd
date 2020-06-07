@@ -8,24 +8,89 @@ import { Link } from 'react-router-dom'
 class publicHome extends Component {
   render() {
     return (
-      
-      <div className='containerHome'>
-        <div>
-          
+      <div className="containerHome">
+        <div className="header">
+          <div className="title">
+            <h1 className="text1">School App</h1>
+            <h1 className="text2">Bienvenidos</h1>
+          </div>
+          <div className="nav">
+            <ul>
+              <li><Link className='login' to='/Login'>Login</Link></li>
+              <li> <Link className='register' to='/register'>Register</Link></li>
+              <li><Link className='contact' to='/contact'>Contacto</Link></li>
+            </ul>
+          </div>
         </div>
-        <ul className='button'>
-          <li><Link className='login' to='/Login'>Login</Link></li>
-          <li> <Link className='register' to='/register'>Register</Link></li>
-          <li><Link className='information' to='/information'>information</Link></li>
-          <li><Link className='contact' to='/contact'>Contacto</Link></li>
-        </ul>
-        
-        <div className='footer'>
-          Universidad abierta interamericana<br></br>
-          Proyecto realizado por los alumnos Santiago Ottolini e Ivan Jukonis
+        <div className="wrapper">
+          <div className="section">
+            <h2>Information</h2>
+            <p>Escribi aca ivan en ingles la info de lo que hace ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+          </p>
+          <p>Escribi aca ivan en ingles la info de lo que hace ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+          </p>
+          <p>Escribi aca ivan en ingles la info de lo que hace ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+          </p>
+          <p>Escribi aca ivan en ingles la info de lo que hace ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+          </p>
+          <p>Escribi aca ivan en ingles la info de lo que hace ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssssssssssssssssss
+          </p>
+          </div>
+
         </div>
       </div>
-      
+      /* <div className='containerHome'>
+         <div>
+           
+         </div>
+         <ul className='button'>
+           <li><Link className='login' to='/Login'>Login</Link></li>
+           <li> <Link className='register' to='/register'>Register</Link></li>
+           <li><Link className='information' to='/information'>information</Link></li>
+           <li><Link className='contact' to='/contact'>Contacto</Link></li>
+         </ul>
+         
+         <div className='footer'>
+           Universidad abierta interamericana<br></br>
+           Proyecto realizado por los alumnos Santiago Ottolini e Ivan Jukonis
+         </div>
+       </div>*/
+
     )
   }
 }

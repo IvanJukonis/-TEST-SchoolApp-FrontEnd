@@ -7,7 +7,6 @@ import Home from '../components/home/publicHome.js';
 import Login from '../components/login/Login.js';
 import Register from '../components/signup/register.js';
 import Menu from '../components/menu/menu.js'
-import Information from "../components/Information/information.js"
 import store from '../redux/store/store';
 
 class Routes extends Component {
@@ -19,7 +18,6 @@ class Routes extends Component {
           <PrivateRoute exact path='/menu' component={Menu} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
-          <Route exact path='/information' component={Information} />
           <Redirect from='/' to='/home' />
         </Switch>
       </BrowserRouter>
