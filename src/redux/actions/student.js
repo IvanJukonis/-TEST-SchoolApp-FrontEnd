@@ -45,7 +45,7 @@ export const postStudent = student => {
       },
       body: JSON.stringify(student)
     }
-    console.log("options", options)
+    
     return fetch(`http://localhost:5000/students`, options)
       .then(res => res.json())
       .then(data => {
@@ -61,6 +61,7 @@ export const postStudent = student => {
           }
         })
       })
+
       .catch(error => {
         return dispatch({
           type: ADD_STUDENT_ERROR,
@@ -69,7 +70,6 @@ export const postStudent = student => {
       })
   }
 }
-
 //UPDATE STUDENTS
 export const updateStudent = student => {
   console.log(student)
@@ -100,6 +100,7 @@ export const updateStudent = student => {
           payload: data
         })
       })
+
       .catch(error => {
         return dispatch({
           type: UPDATE_STUDENT_ERROR,
@@ -147,6 +148,7 @@ export const deleteStudent = code => {
           payload: data
         })
       })
+
       .catch(error => {
         return dispatch({
           type: DELETE_STUDENT_ERROR,

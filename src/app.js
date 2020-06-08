@@ -5,7 +5,6 @@ import store from "./redux/store/store"
 //Traigo las rutas
 import Routes from "./routes/view"
 
-
 class App extends Component{
   render() {
     return (
@@ -17,5 +16,6 @@ class App extends Component{
     
   }
 }
+
 //SE EXPORTA "App"
 export default App;

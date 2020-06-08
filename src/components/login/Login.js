@@ -19,7 +19,7 @@ class Login extends Component {
     this.props.logIn(values).then((response) => {
       console.log(response);
       //si las props estan autorizadas de redux
-      if (this.props.isAuth) {
+      if (this.props.Authentication) {
         //te tira al home privado
         this.props.history.push("/menu");
       }
@@ -28,7 +28,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login-container">
+      <div className="loginContainer">
         <Formik
           initialValues={{ email: "", password: "" }}
           onSubmit={this.getLogin}
@@ -90,7 +90,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     users: state.users,
     isLoading: state.users.isLoading,
-    isAuth: state.users.isAuth,
+    authentication: state.users.authentication,
     failedLogin: state.users.failedLogin,
   };
 };
