@@ -8,8 +8,7 @@ import {
   UPDATE_STUDENT_ERROR,
   DELETE_STUDENT_PENDING,
   DELETE_STUDENT_SUCCESS,
-  DELETE_STUDENT_ERROR,
-  SET_SELECTED_STUDENT_ID
+  DELETE_STUDENT_ERROR
 } from "./types"
 
 import store from "../store/store"
@@ -27,10 +26,10 @@ export const fetchStudents = () => dispatch => {
     }
   )
 }
+//#endregion
 
 //#region POST STUDENT
 export const postStudent = student => {
-  console.log("entraste")
   return dispatch => {
     dispatch({
       type: ADD_STUDENT_PENDING
@@ -68,6 +67,7 @@ export const postStudent = student => {
     )
   }
 }
+//#endregion
 
 //#region UPDATE STUDENTS
 export const updateStudent = student => {
@@ -84,11 +84,9 @@ export const updateStudent = student => {
       },
       body: JSON.stringify({ student })
     }
-
     return fetch(`http://localhost:5000/students/${student._id}`, options)
-      .then(res => res.json())
+      .then(response => response.json())
       .then(data => {
-        console.log("UPDATE STUDENT", data)
         if (!Object.entries(data).length) {
           return Promise.reject(data)
         }
@@ -107,24 +105,14 @@ export const updateStudent = student => {
     )
   }
 }
+//#endregion
 
-//SET STUDENT
-export const setStudentOnForm = _id => {
-  return dispatch => {
-    dispatch({
-      type: SET_SELECTED_STUDENT_ID,
-      payload: _id
-    })
-  }
-}
-
-//DELETE THE STUDENT
+//#region DELETE STUDENT
 export const deleteStudent = code => {
   return dispatch => {
     dispatch({
       type: DELETE_STUDENT_PENDING
     })
-
     const options = {
       timeout: 25000,
       method: "DELETE",
@@ -132,15 +120,12 @@ export const deleteStudent = code => {
         "Content-Type": "application/json"
       }
     }
-
     return fetch(`http://localhost:5000/students/${code}`, options)
-      .then(res => res.json())
+      .then(response => response.json())
       .then(data => {
-        console.log("DELETE STUDENT", data)
         if (!Object.entries(data).length) {
           return Promise.reject(data)
         }
-
         return dispatch({
           type: DELETE_STUDENT_SUCCESS,
           payload: data
@@ -151,6 +136,8 @@ export const deleteStudent = code => {
           type: DELETE_STUDENT_ERROR,
           payload: error
         })
-      })
+      }
+    )
   }
 }
+//#endregion
