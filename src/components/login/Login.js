@@ -38,36 +38,44 @@ class Login extends Component {
               <div className="containerLogin">
                 <h5> Sign in to SchoolApp</h5>
                 <div className="login">
-                <Field
+                  <Field
                     type="email"
-                    id ="emailLogin"
+                    id="emailLogin"
                     name="email"
                     placeholder="Email"
                   />
                   <Field
                     type="password"
-                    id ="passwordLogin"
+                    id="passwordLogin"
                     name="password"
                     placeholder="Password"
                   />
-                  
+
                   {!this.props.isLoading ? (
                     <button type="submit" className="btnLogin">
                       Sign In
                     </button>
                   ) : (
-                      //Barrita que carga
-                      <ClipLoader  size={25} color={"white"} loading />
-                    )}
+                    //Barrita que carga
+                    <ClipLoader size={25} color={"white"} loading />
+                  )}
                   <div>
                     {this.props.failedLogin ? (
-                      <div className="bad-credentials">BAD CREDENTIALS</div>
+                      <div className="bad-credentials"></div>
                     ) : null}
                   </div>
                 </div>
                 <div className="btnLinks">
-                  <p><Link className="btnCreateAccount" to="/register">Create Account</Link></p>
-                  <p><Link className="btnHome" to="/home">Back to home</Link></p>     
+                  <p>
+                    <Link className="btnCreateAccount" to="/register">
+                      Create Account
+                    </Link>
+                  </p>
+                  <p>
+                    <Link className="btnHome" to="/home">
+                      Back to home
+                    </Link>
+                  </p>
                 </div>
               </div>
             </Form>

@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 //Traigo 4 props de librearia para manipulacion de rutas
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 //REVISAR COMPONENTES INDIVIDUALES
-import Home from '../components/home/publicHome.js';
-import Login from '../components/login/Login.js';
-import Register from '../components/signup/register.js';
-import Menu from '../components/menu/menu.js'
-import store from '../redux/store/store';
+import Home from "../components/home/publicHome.js";
+import Login from "../components/login/Login.js";
+import Register from "../components/signup/register.js";
+import Menu from "../components/menu/menu.js"
+import store from "../redux/store/store";
 
 class Routes extends Component {
   render() {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path='/home' component={Home} />
-          <PrivateRoute exact path='/menu' component={Menu} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/register' component={Register} />
-          <Redirect from='/' to='/home' />
+          <Route exact path="/home" component={Home} />
+          <PrivateRoute exact path="/menu" component={Menu} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <Redirect from="/" to="/home" />
         </Switch>
       </BrowserRouter>
     );
@@ -35,7 +35,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         <Component {...props} />
       ) : (
         //sino de redirecciona
-        <Redirect to='/' />
+        <Redirect to="/" />
       )
     }
   />
