@@ -1,10 +1,9 @@
 import "./menu.css";
 import React, { Component } from "react";
-import { isAuth, logOut } from "../../redux/actions/login";
+import { AUTHENTICATION, logOut } from "../../redux/actions/login";
 import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
 import { postStudent, fetchStudents } from "../../redux/actions/student";
 
 class Menu extends Component {
@@ -238,13 +237,13 @@ class Menu extends Component {
 const mapStateToProps = (state) => {
   return {
     isLoading: state.isLoading,
-    isAuth: state.isAuth,
+    authentication: state.AUTHENTICATION,
     studentList: state.students.students, // trae los estudiantes
   };
 };
 
 const mapDispatchToProps = {
-  isAuth,
+  AUTHENTICATION,
   logOut,
   postStudent,
   fetchStudents,

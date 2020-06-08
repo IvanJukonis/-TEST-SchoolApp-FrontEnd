@@ -1,10 +1,10 @@
-import "./publicHome.css";
+import "./home.css";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
 
-class publicHome extends Component {
+class Home extends Component {
   render() {
     return (
       <div className="containerHome">
@@ -103,7 +103,7 @@ class publicHome extends Component {
 const mapStateToProps = (state) => {
   return {
     isLoading: state.isLoading,
-    isAuth: state.isAuth,
+    authentication: state.Authentication,
   };
 };
 
@@ -112,4 +112,4 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({}, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(publicHome);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
