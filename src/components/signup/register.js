@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 class Register extends Component {
   render() {
     return (
-      <div className="register-container">
+      <div className="registerContainer">
         <Formik
           initialValues={{password: "", email: "" }}
           onSubmit={(values) => {

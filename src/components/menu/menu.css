@@ -1,30 +1,200 @@
 .containerMenu {
   display: flex;
   flex-direction: column;
-  top: 0px;
   height: 950px;
-  
+  top: 0px;
 }
+
 * {
   font-family: sans-serif; /* Change your font family */
 }
 
+.overlayDisabled {
+  position: fixed;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+}
+
+.overlayEnabled {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  visibility: visible;
+}
+
+.popUpEnabled {
+  position: absolute;
+  width: 350px;
+  background-color: transparent;
+  visibility: visible;
+}
+
+.popUpDisabled {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 0px;
+  visibility: hidden;
+}
+
+.containerAddStudent {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  height: 400px;
+  top: 10%;
+  left: 35%;
+  padding: 20px 30px;
+  border-top: 4px solid #017bab;
+  background-color: #4e4d4d;
+  box-shadow: 7px 13px 37px #000;
+  color: white;
+}
+
+h4 {
+  height: 40px;
+  margin: 0;
+  margin-bottom: 30px;
+  text-align: center;
+  border-bottom: 1px solid;
+  font-size: 20px;
+}
+
+.nameStudent,
+.lastnameStudent,
+.ageStudent,
+.classStudent {
+  width: 95%;
+  padding: 11px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #017bab;
+  border-radius: 12px;
+  background: #252323;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.btnAddStudent {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  background: #017bab;
+  border: none;
+  color: white;
+}
+
+.overlayDisabledMark {
+  position: fixed;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+}
+
+.overlayEnabledMark {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  visibility: visible;
+}
+
+.popUpDisabledMark {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 0px;
+  visibility: hidden;
+}
+
+.popUpEnabledMark {
+  position: absolute;
+  width: 350px;
+  visibility: visible;
+  background-color: transparent;
+}
+
+.containerAddMarks {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  height: 340px;
+  top: 10%;
+  left: 35%;
+  padding: 20px 30px;
+  border-top: 4px solid #017bab;
+  background-color: #4e4d4d;
+  box-shadow: 7px 13px 37px #000;
+  color: white;
+}
+
+.nameStudentMark,
+.subjectMark,
+.noteMark {
+  width: 95%;
+  padding: 11px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #017bab;
+  border-radius: 12px;
+  background: #252323;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.btnAddMark {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  background: #017bab;
+  color: white;
+  border: none;
+}
+
 .content-table-student,
 .content-table-mark {
-  border-collapse: collapse;
   margin: 25px 0;
-  font-size: 0.9em;
   min-width: 400px;
   border-radius: 5px 5px 0 0;
-  overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-collapse: collapse;
+  font-size: 0.9em;
+  overflow: hidden;
 }
 
 .content-table-student thead tr,
 .content-table-mark thead tr {
+  text-align: left;
   background-color: #017bab;
   color: #ffffff;
-  text-align: left;
   font-weight: bold;
 }
 
@@ -56,186 +226,31 @@
   color: #009879;
 }
 
-.overlayDisabled {
-  display: flex;
-  visibility: hidden;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,.3);
-}
-
-.overlayEnabled {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  visibility: visible;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,.3);
-}
-.overlayDisabledMark {
-  display: flex;
-  visibility: hidden;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,.3);
-}
-.overlayEnabledMark {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  visibility: visible;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,.3);
-}
-
-.popUpDisabled {
-  position: absolute;
-  visibility: hidden;
-  top: 0px;
-  left: 0px;
-  width: 0px;
-  height: 0px;
-  
-}
-.popUpDisabledMark {
-  position: absolute;
-  visibility: hidden;
-  top: 0px;
-  left: 0px;
-  width: 0px;
-  height: 0px;
-  
-}
-
-.popUpEnabled {
-  position: absolute;
-  visibility: visible;
-  width: 350px;
-  background-color:transparent;
-}
-.popUpEnabledMark {
-  position: absolute;
-  visibility: visible;
-  width: 350px;
-  background-color:transparent;
-}
-.containerAddStudent{
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  top:10%;
-  left: 35%;
-  width: 400px;
-  height: 400px;
-  background-color: #4e4d4d;
-  box-shadow: 7px 13px 37px #000;
-  padding: 20px 30px;
-  border-top: 4px solid #017bab;
-  color: white;
-}
-.containerAddMarks{
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  top:10%;
-  left: 35%;
-  width: 400px;
-  height: 340px;
-  background-color: #4e4d4d;
-  box-shadow: 7px 13px 37px #000;
-  padding: 20px 30px;
-  border-top: 4px solid #017bab;
-  color: white;
-}
-.btnAdd, .btnModify, .btnDelete{
-  font-family: Arial;
-  text-decoration: none;
+.btnAdd,
+.btnModify,
+.btnDelete {
   float: left;
+  margin: 10px;
   padding: 10px 20px 10px 20px;
+  border-radius: 15px;
+  box-shadow: 7px 13px 37px #000;
   background-color: #2175bc;
   color: #fff;
-  border-radius: 15px;
-  margin: 10px;
   font-size: 15px;
-  box-shadow: 7px 13px 37px #000;
-}
-
-
-.btnLogOut{
-  position: relative;
-  left: 45%;
-  padding: 10px 20px 10px 20px;
-  background-color: #9c2819;
-  color: #fff;
-  border-radius: 15px;
-  margin: 10px;
-  font-size: 15px;
-  box-shadow: 7px 13px 37px #000;
   font-family: Arial;
   text-decoration: none;
 }
-h4{
-  margin: 0;
-  text-align: center;
-  height: 40px;
-  margin-bottom: 30px;
-  border-bottom: 1px solid;
-  font-size: 20px;
-}
-.nameStudent, .lastnameStudent, .ageStudent, .classStudent{
-  width: 95%;
-  border: 1px solid #017bab;
-  margin-bottom: 15px;
-  padding: 11px 10px;
-  background: #252323;
-  font-size: 14px;
-  font-weight: bold;
-  color: #fff;
-  border-radius: 12px;
-}
-.nameStudentMark, .subjectMark, .noteMark{
-  width: 95%;
-  border: 1px solid #017bab;
-  margin-bottom: 15px;
-  padding: 11px 10px;
-  background: #252323;
-  font-size: 14px;
-  font-weight: bold;
-  color: #fff;
-  border-radius: 12px;
-}
 
-.btnAddStudent{
-  width: 100%;
-  height: 40px;
-  background: #017bab;
-  border: none;
-  color: white;
-  margin-bottom: 16px;
-  border-radius: 12px;
-}
-.btnAddMark{
-  width: 100%;
-  height: 40px;
-  background: #017bab;
-  border: none;
-  color: white;
-  margin-bottom: 16px;
-  border-radius: 12px;
+.btnLogOut {
+  position: relative;
+  left: 45%;
+  margin: 10px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 15px;
+  box-shadow: 7px 13px 37px #000;
+  background-color: #9c2819;
+  font-family: Arial;
+  font-size: 15px;
+  color: #fff;
+  text-decoration: none;
 }
