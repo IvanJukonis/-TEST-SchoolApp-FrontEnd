@@ -8,7 +8,7 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_ERROR,
   USER_LOGOUT
-} from '../actions/types';
+} from "../actions/types";
 
 const initialState = {
   isAuth: false,
@@ -17,7 +17,7 @@ const initialState = {
   isLoading: false,
   message: undefined,
   logged: false,
-  token: '',
+  token: "",
   failedLogin: false
 };
 

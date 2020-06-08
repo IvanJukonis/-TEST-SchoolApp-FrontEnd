@@ -10,13 +10,13 @@ import {
   DELETE_STUDENT_SUCCESS,
   DELETE_STUDENT_ERROR,
   SET_SELECTED_STUDENT_ID
-} from './types'
+} from "./types"
 
-import store from '../store/store'
+import store from "../store/store"
 
 //GET STUDENTS
 export const fetchStudents = () => dispatch => {
-  fetch('http://localhost:5000/students')
+  fetch("http://localhost:5000/students")
     .then(res => res.json())
     .then(data => {
       console.log(data)
@@ -29,7 +29,7 @@ export const fetchStudents = () => dispatch => {
 
 //POST STUDENTS
 export const postStudent = student => {
-  console.log('entraste')
+  console.log("entraste")
   return dispatch => {
     dispatch({
       type: ADD_STUDENT_PENDING
@@ -38,18 +38,18 @@ export const postStudent = student => {
     const { token } = store.getState().users
     const options = {
       timeout: 25000,
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         authorization: `BEARER ${token}`
       },
       body: JSON.stringify(student)
     }
-    console.log('options', options)
+    console.log("options", options)
     return fetch(`http://localhost:5000/students`, options)
       .then(res => res.json())
       .then(data => {
-        console.log('POST STUDENT', data)
+        console.log("POST STUDENT", data)
         if (!Object.entries(data).length) {
           return Promise.reject(data)
         }
@@ -80,9 +80,9 @@ export const updateStudent = student => {
 
     const options = {
       timeout: 25000,
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ student })
     }
@@ -90,7 +90,7 @@ export const updateStudent = student => {
     return fetch(`http://localhost:5000/students/${student._id}`, options)
       .then(res => res.json())
       .then(data => {
-        console.log('UPDATE STUDENT', data)
+        console.log("UPDATE STUDENT", data)
         if (!Object.entries(data).length) {
           return Promise.reject(data)
         }
@@ -128,16 +128,16 @@ export const deleteStudent = code => {
 
     const options = {
       timeout: 25000,
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       }
     }
 
     return fetch(`http://localhost:5000/students/${code}`, options)
       .then(res => res.json())
       .then(data => {
-        console.log('DELETE STUDENT', data)
+        console.log("DELETE STUDENT", data)
         if (!Object.entries(data).length) {
           return Promise.reject(data)
         }

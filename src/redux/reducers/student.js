@@ -10,16 +10,16 @@ import {
     DELETE_STUDENT_SUCCESS,
     DELETE_STUDENT_ERROR,
     SET_SELECTED_STUDENT_ID
-  } from '../actions/types'
+  } from "../actions/types"
   
   const initialState = {
     students: [],
-    size: '',
+    size: "",
     error: null,
     isLoading: false,
     message: undefined,
     adminActions: false,
-    studentSelected: ''
+    studentSelected: ""
   }
   
   export default function(state = initialState, action) {
