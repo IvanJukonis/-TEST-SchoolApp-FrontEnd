@@ -10,7 +10,7 @@ import {
   AUTHENTICATION,
 } from "./types";
 
-//#region POSTUSER
+//#region POST USER
 export const postUser = (user) => {
   return (dispatch) => {
     dispatch({
@@ -49,7 +49,7 @@ export const postUser = (user) => {
 };
 //#endregion
 
-//#region FETCH
+//#region GET USER
 export const fetchUser = () => (dispatch) => {
   fetch("http://localhost:5000/api/user/")
     .then((response) => response.json())
