@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-//Traigo 4 props de librearia para manipulacion de rutas
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-//REVISAR COMPONENTES INDIVIDUALES
-import Home from "../components/home/publicHome.js";
+//Single Components
+import Home from "../components/home/Home.js";
 import Login from "../components/login/Login.js";
 import Register from "../components/signup/register.js";
 import Menu from "../components/menu/menu.js"
@@ -25,16 +24,16 @@ class Routes extends Component {
   }
 }
 
-//Revisamos si existe el token (preguntar bien como funciona)
+//Authentication Route
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={props =>
       store.getState().users.token ? (
-        //En caso de tener el toquen muestra el componente
+        //Show component in case of true (Token)
         <Component {...props} />
       ) : (
-        //sino de redirecciona
+        //Redirect to home in case of false
         <Redirect to="/" />
       )
     }
