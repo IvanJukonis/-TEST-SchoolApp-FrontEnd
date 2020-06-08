@@ -58,6 +58,7 @@ export const postStudent = student => {
           }
         })
       })
+
       .catch(error => {
         return dispatch({
           type: ADD_STUDENT_ERROR,
@@ -96,6 +97,7 @@ export const updateStudent = student => {
           payload: data
         })
       })
+
       .catch(error => {
         return dispatch({
           type: UPDATE_STUDENT_ERROR,
@@ -131,6 +133,7 @@ export const deleteStudent = code => {
           payload: data
         })
       })
+
       .catch(error => {
         return dispatch({
           type: DELETE_STUDENT_ERROR,

@@ -3,7 +3,7 @@ import {
   ADD_USER_SUCCESS,
   ADD_USER_ERROR,
   FETCH_USERS,
-  IS_AUTH,
+  AUTHENTICATION,
   LOGIN_USER_PENDING,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_ERROR,
@@ -11,7 +11,7 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  isAuth: false,
+  authentication: false,
   users: [],
   error: null,
   isLoading: false,
@@ -23,10 +23,10 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case IS_AUTH:
+    case  AUTHENTICATION:
       return {
         ...state,
-        isAuth: action.payload.isAuth,
+        authentication: action.payload.authentication,
         token: action.payload.token
       };
     case USER_LOGOUT:
@@ -50,7 +50,7 @@ export default function(state = initialState, action) {
         isLoading: false,
         //PAYLOAD ES LA RES QUE VINO DEL BACK Y ESA RES VENIA CON UN TOKEN ENTONCES GUARDAMOS ESE TOKEN EN LA VARIABLE TOKEN
         token: action.payload.token,
-        isAuth: true
+        authentication: true
       };
 
     case LOGIN_USER_ERROR:
