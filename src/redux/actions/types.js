@@ -5,7 +5,7 @@ export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS'
 
 export const LOGIN_USER_ERROR = 'LOGIN_USER_ERROR'
 
-export const IS_AUTH = 'IS_AUTH'
+export const AUTHENTICATION = 'AUTHTENTICATION'
 
 export const FETCH_USERS = 'FETCH_USERS'
 
