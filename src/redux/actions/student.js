@@ -14,29 +14,30 @@ import {
 
 import store from "../store/store"
 
-//GET STUDENTS
+//#region GET STUDENTS
 export const fetchStudents = () => dispatch => {
   fetch("http://localhost:5000/students")
-    .then(res => res.json())
+    .then(response => response.json())
     .then(data => {
       console.log(data)
       return dispatch({
         type: FETCH_STUDENT,
         payload: data
       })
-    })
+    }
+  )
 }
 
-//POST STUDENTS
+//#region POST STUDENT
 export const postStudent = student => {
   console.log("entraste")
   return dispatch => {
     dispatch({
       type: ADD_STUDENT_PENDING
     })
-    //de .users traigo todo el modulo usuarios (gracias al combinetools)
+    //CombineTools allow us to get the users
     const { token } = store.getState().users
-    const options = {
+    const request = {
       timeout: 25000,
       method: "POST",
       headers: {
@@ -45,15 +46,12 @@ export const postStudent = student => {
       },
       body: JSON.stringify(student)
     }
-    console.log("options", options)
-    return fetch(`http://localhost:5000/students`, options)
-      .then(res => res.json())
+    return fetch(`http://localhost:5000/students`, request)
+      .then(response => response.json())
       .then(data => {
-        console.log("POST STUDENT", data)
         if (!Object.entries(data).length) {
           return Promise.reject(data)
         }
-
         return dispatch({
           type: ADD_STUDENT_SUCCESS,
           payload: {
@@ -66,18 +64,18 @@ export const postStudent = student => {
           type: ADD_STUDENT_ERROR,
           payload: error
         })
-      })
+      }
+    )
   }
 }
 
-//UPDATE STUDENTS
+//#region UPDATE STUDENTS
 export const updateStudent = student => {
   console.log(student)
   return dispatch => {
     dispatch({
       type: UPDATE_STUDENT_PENDING
     })
-
     const options = {
       timeout: 25000,
       method: "PUT",
@@ -105,7 +103,8 @@ export const updateStudent = student => {
           type: UPDATE_STUDENT_ERROR,
           payload: error
         })
-      })
+      }
+    )
   }
 }
 
