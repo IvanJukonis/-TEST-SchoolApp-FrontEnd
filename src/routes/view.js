@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 //Single Components
-import Home from "../components/home/Home.js";
+import Home from "../components/home/home.js";
 import Login from "../components/login/Login.js";
 import Register from "../components/signup/register.js";
 import Menu from "../components/menu/menu.js"
