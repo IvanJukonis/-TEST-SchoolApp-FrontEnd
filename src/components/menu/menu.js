@@ -1,6 +1,6 @@
 import "./menu.css";
 import React, { Component } from "react";
-import { AUTHENTICATION, logOut } from "../../redux/actions/login";
+import { Authentication, logOut } from "../../redux/actions/login";
 import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -163,6 +163,7 @@ class Menu extends Component {
           </thead>
           <tbody>
             {this.props.studentList &&
+            //map recorre todos los estudiantes
               this.props.studentList.map((student) => {
                 // muestra los estudiantes si existen y sino no muestra nada, por cada estudiante devuelve una fila "tr", cada vez que se agrega uno nuevo se ejecuta otra vez el map
                 return (
@@ -243,7 +244,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  AUTHENTICATION,
+  Authentication,
   logOut,
   postStudent,
   fetchStudents,

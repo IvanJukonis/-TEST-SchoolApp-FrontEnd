@@ -19,7 +19,7 @@ class Login extends Component {
     this.props.logIn(values).then((response) => {
       console.log(response);
       //si las props estan autorizadas de redux
-      if (this.props.Authentication) {
+      if (this.props.authentication) {
         //te tira al home privado
         this.props.history.push("/menu");
       }
