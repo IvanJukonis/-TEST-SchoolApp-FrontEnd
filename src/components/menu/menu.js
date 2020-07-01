@@ -5,6 +5,7 @@ import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { postStudent, fetchStudents } from "../../redux/actions/student";
+import student from "../../redux/reducers/student";
 
 class Menu extends Component {
   constructor(props) {
@@ -99,7 +100,7 @@ class Menu extends Component {
           }
         >
           <Formik
-            initialValues={{ student: "", subject: "", note: "" }}
+            initialValues={{ studentId: "", subject: "", note: "" }}
             onSubmit={(values) => {
               this.props.postQualification(values);
               this.setState((prevState) => ({ check2: !prevState.check2 }));
@@ -111,11 +112,18 @@ class Menu extends Component {
                   <h4> Add Notes</h4>
 
                   <Field
-                    type="text"
+                    as = "select"
                     className="nameStudentMark"
-                    name="student"
-                    placeholder="Name"
-                  />
+                    name="studentId"
+                    placeholder="Student"
+                  >
+                    {this.props.studentList.map(student =>{
+                      return(
+                      <option>{ `${student.name}-${student.lastname}`}</option>//$ (lo que esta adentro de la llave es una variable)
+                      )
+                    })}
+                    
+                  </Field>
 
                   <Field
                     type="text"
