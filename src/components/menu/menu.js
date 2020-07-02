@@ -117,9 +117,10 @@ class Menu extends Component {
                     name="studentId"
                     placeholder="Student"
                   >
+                    {/*El id me lo guarda en las values del fromik    ESTO ES LO NUEVO*/}
                     {this.props.studentList.map(student =>{
                       return(
-                      <option>{ `${student.name}-${student.lastname}`}</option>//$ (lo que esta adentro de la llave es una variable)
+                      <option value={student._id}>{ `${student.name}-${student.lastname}`}</option>//$ (lo que esta adentro de la llave es una variable)
                       )
                     })}
                     
