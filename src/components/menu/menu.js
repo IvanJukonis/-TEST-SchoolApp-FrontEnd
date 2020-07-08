@@ -4,7 +4,8 @@ import { Authentication, logOut } from "../../redux/actions/login";
 import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { postStudent, fetchStudents } from "../../redux/actions/student";
+import { postStudent, fetchStudents} from "../../redux/actions/student";
+import {postQualification, fetchQualifications} from "../../redux/actions/qualification"
 import student from "../../redux/reducers/student";
 
 class Menu extends Component {
@@ -19,10 +20,11 @@ class Menu extends Component {
   componentDidMount() {
     //el fetch va a al back y trae los estudiantes
     this.props.fetchStudents();
+    this.props.fetchQualifications();
   }
 
   render() {
-    console.log(this.props.studentList);
+    console.log(this.props.qualificationList);
     return (
       <div className="containerMenu">
         <div
@@ -32,7 +34,6 @@ class Menu extends Component {
           <Formik
             initialValues={{ name: "", lastname: "", age: "", class: "" }}
             onSubmit={(values) => {
-              console.log("submitiaste");
               this.props.postStudent(values);
               this.setState((prevState) => ({ check: !prevState.check }));
             }}
@@ -110,15 +111,16 @@ class Menu extends Component {
               <Form onSubmit={handleSubmit}>
                 <div className="containerAddMarks">
                   <h4> Add Notes</h4>
-
                   <Field
-                    as = "select"
+                    type="text"
+                    as="select"
                     className="nameStudentMark"
                     name="studentId"
                     placeholder="Student"
                   >
                     {/*El id me lo guarda en las values del fromik    ESTO ES LO NUEVO*/}
                     {this.props.studentList.map(student =>{
+                     
                       return(
                       <option value={student._id}>{ `${student.name}-${student.lastname}`}</option>//$ (lo que esta adentro de la llave es una variable)
                       )
@@ -205,22 +207,28 @@ class Menu extends Component {
           <thead>
             <tr>
               <th>Select</th>
-              <th>Name</th>
-              <th>Last name</th>
+              <th>Student</th>
               <th>Subject</th>
               <th>Note</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <input type="checkbox"></input>
-              </td>
-              <td>1</td>
-              <td>Domenic</td>
-              <td>88,110</td>
-              <td>dcode</td>
-            </tr>
+            {this.props.qualificationList &&
+            //map recorre todos los estudiantes
+              this.props.qualificationList.map((qualification) => {
+                // muestra los estudiantes si existen y sino no muestra nada, por cada estudiante devuelve una fila "tr", cada vez que se agrega uno nuevo se ejecuta otra vez el map
+                return (
+                  <tr>
+                    <td>
+                      <input type="checkbox"></input>
+                    </td>
+                    <td>{`${qualification.student.name}-${qualification.student.lastname}`}</td>
+                    <td>{qualification.subject}</td>
+                    <td>{qualification.note}</td>
+                    <td>{qualification.class}</td>
+                  </tr>
+                );
+              })}
           </tbody>
           <button
             className="btnAdd"
@@ -248,7 +256,8 @@ const mapStateToProps = (state) => {
   return {
     isLoading: state.isLoading,
     authentication: state.AUTHENTICATION,
-    studentList: state.students.students, // trae los estudiantes
+    studentList: state.students.students,
+    qualificationList: state.qualifications.qualifications // trae los estudiantes
   };
 };
 
@@ -257,6 +266,8 @@ const mapDispatchToProps = {
   logOut,
   postStudent,
   fetchStudents,
+  postQualification,
+  fetchQualifications
 };
 //mapstatetoprops = lo que vas a leer
 //mapdispatchtoprops = acciones q vas a usar
