@@ -67,3 +67,34 @@ h4 {
 .btnBackHome:hover {
   text-decoration: underline;
 }
+
+
+@media (min-width: 320px) {
+  .containerRegister {
+    width: 240px;
+    height: 420px;
+    text-align: center;
+  }
+}
+@media (min-width: 414px) {
+  .containerRegister {
+    width: 300px;
+    height: 420px;
+    margin-top: 100px;
+  }
+}
+
+@media (min-width: 768px) {
+  .containerRegister {
+    width: 350px;
+    height: 420px;
+  }
+}
+
+@media (min-width: 900px) {
+  .containerRegister {
+    width: 400px;
+    height: 400px;
+  }
+
+}
