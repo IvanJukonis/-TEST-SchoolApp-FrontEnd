@@ -199,7 +199,6 @@ class Menu extends Component {
           >
             Add
           </button>
-          <button className="btnModify">Modify</button>
           <button className="btnDelete">Delete</button>
         </table>
 
@@ -238,7 +237,6 @@ class Menu extends Component {
           >
             Add
           </button>
-          <button className="btnModify">Modify</button>
           <button className="btnDelete">Delete</button>
         </table>
 
