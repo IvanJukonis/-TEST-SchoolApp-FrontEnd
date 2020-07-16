@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import Home from "../components/home/home.js";
 import Login from "../components/login/Login.js";
 import Register from "../components/signup/register.js";
-import Menu from "../components/menu/menu.js"
+import Menu from "../components/menu/menu.js";
 import store from "../redux/store/store";
 
 class Routes extends Component {
@@ -27,7 +27,7 @@ class Routes extends Component {
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
+    render={(props) =>
       store.getState().users.token ? (
         //Show component in case of true (Token)
         <Component {...props} />
