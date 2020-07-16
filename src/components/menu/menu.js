@@ -115,7 +115,7 @@ class Menu extends Component {
                     name="studentId"
                     placeholder="Student"
                   >
-                    {/*El id me lo guarda en las values del fromik    ESTO ES LO NUEVO*/}
+                    {/*El id me lo guarda en las values del fromik ESTO ES LO NUEVO*/}
                     {this.props.studentList.map((student) => {
                       return (
                         <option
