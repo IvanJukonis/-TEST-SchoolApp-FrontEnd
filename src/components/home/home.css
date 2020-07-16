@@ -8,7 +8,6 @@
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-
 .header {
   position: fixed;
   width: 100%;
@@ -20,7 +19,6 @@
   overflow: hidden;
   transition: all 0.5s ease;
 }
-
 .text1 {
   position: relative;
   margin-bottom: 20px;
@@ -52,7 +50,6 @@
   color: white;
   text-decoration: none;
 }
-
 ul {
   display: flex;
   justify-content: center;
@@ -60,7 +57,6 @@ ul {
   margin: auto;
   list-style: none;
 }
-
 li {
   padding: 10px 15px;
   margin-top: 13px;
@@ -68,11 +64,9 @@ li {
   line-height: 1;
   font-size: 15px;
 }
-
 div div div li:hover {
   background: rgba(0, 0, 0, 0.2);
 }
-
 h2 {
   font-size: 34px;
   font-weight: 400;
@@ -80,7 +74,6 @@ h2 {
   color: #2c3e50;
   text-transform: uppercase;
 }
-
 p {
   margin-bottom: 2rem;
   line-height: 2;
@@ -98,7 +91,6 @@ p {
   background: rgb(255, 255, 255);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
-
 @keyframes text {
   0% {
     margin-bottom: -90px;
@@ -115,7 +107,6 @@ p {
     letter-spacing: 8px;
   }
 }
-
 @media (min-width: 320px) {
   .text1 {
     font-size: 35px;
@@ -133,7 +124,6 @@ p {
     animation: none;
   }
 }
-
 @media (min-width: 768px) {
   .text1 {
     font-size: 45px;
@@ -142,7 +132,6 @@ p {
     animation: none;
   }
 }
-
 @media (min-width: 900px) {
   .text1 {
     font-size: 50px;
@@ -151,7 +140,6 @@ p {
     animation: none;
   }
 }
-
 @media (min-width: 1024px) {
   .text1 {
     font-size: 55px;
@@ -161,7 +149,6 @@ p {
     animation: none;
   }
 }
-
 @media (min-width: 1200px) {
   .text1 {
     font-size: 60px;

@@ -12,7 +12,6 @@ class Login extends Component {
     super(props);
     this.getLogin = this.getLogin.bind(this);
   }
-
   //captura los datos de redux
   getLogin = (values) => {
     console.log(this.props);
@@ -25,7 +24,6 @@ class Login extends Component {
       }
     });
   };
-
   render() {
     return (
       <div className="loginContainer">
@@ -50,7 +48,6 @@ class Login extends Component {
                     name="password"
                     placeholder="Password"
                   />
-
                   {!this.props.isLoading ? (
                     <button type="submit" className="btnLogin">
                       Sign In
@@ -85,7 +82,6 @@ class Login extends Component {
     );
   }
 }
-
 const mapStateToProps = (state, ownProps) => {
   return {
     users: state.users,
@@ -94,9 +90,7 @@ const mapStateToProps = (state, ownProps) => {
     failedLogin: state.users.failedLogin,
   };
 };
-
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ logIn }, dispatch);
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

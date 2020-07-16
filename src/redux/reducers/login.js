@@ -7,7 +7,7 @@ import {
   LOGIN_USER_PENDING,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_ERROR,
-  USER_LOGOUT
+  USER_LOGOUT,
 } from "../actions/types";
 
 const initialState = {
@@ -18,20 +18,20 @@ const initialState = {
   message: undefined,
   logged: false,
   token: "",
-  failedLogin: false
+  failedLogin: false,
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
-    case  AUTHENTICATION:
+    case AUTHENTICATION:
       return {
         ...state,
         authentication: action.payload.authentication,
-        token: action.payload.token
+        token: action.payload.token,
       };
     case USER_LOGOUT:
       return {
-        state: initialState
+        state: initialState,
       };
     case LOGIN_USER_PENDING:
       return {
@@ -39,18 +39,18 @@ export default function(state = initialState, action) {
         //EL REDUCER HACE UNA COPIA DEL STORE Y LE DICE QUE AGUANTE PORQUE VAN A HACER MAS COSAS --> ACTION
         ...state,
         isLoading: true,
-        failedLogin: false
+        failedLogin: false,
       };
-      //PREGUNTAR PARA QUE ESTA EL PENDING
+    //PREGUNTAR PARA QUE ESTA EL PENDING
 
-      //CAEMOS ACA DESDE EL ACTION QUE 
+    //CAEMOS ACA DESDE EL ACTION QUE
     case LOGIN_USER_SUCCESS:
       return {
         ...state,
         isLoading: false,
         //PAYLOAD ES LA RES QUE VINO DEL BACK Y ESA RES VENIA CON UN TOKEN ENTONCES GUARDAMOS ESE TOKEN EN LA VARIABLE TOKEN
         token: action.payload.token,
-        authentication: true
+        authentication: true,
       };
 
     case LOGIN_USER_ERROR:
@@ -58,18 +58,18 @@ export default function(state = initialState, action) {
         ...state,
         isLoading: false,
         message: action.payload,
-        failedLogin: true
+        failedLogin: true,
       };
 
     case FETCH_USERS:
       return {
         ...state,
-        users: action.payload
+        users: action.payload,
       };
     case ADD_USER_PENDING:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
 
     case ADD_USER_SUCCESS: {
@@ -78,7 +78,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        users: user
+        users: user,
       };
     }
     case ADD_USER_ERROR:
@@ -86,7 +86,7 @@ export default function(state = initialState, action) {
         ...state,
         isLoading: false,
         error: action.error,
-        message: action.payload.message
+        message: action.payload.message,
       };
     default:
       return state;

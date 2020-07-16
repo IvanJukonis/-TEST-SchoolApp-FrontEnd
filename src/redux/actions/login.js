@@ -43,26 +43,22 @@ export const postUser = (user) => {
           type: ADD_USER_ERROR,
           payload: error,
         });
-      }
-    );
+      });
   };
 };
 //#endregion
-
 //#region GET USER
 export const fetchUser = () => (dispatch) => {
   fetch("http://localhost:5000/api/user/")
     .then((response) => response.json())
     .then((data) => {
-      return dispatch({ 
-        type: FETCH_USERS, 
-        payload: data 
+      return dispatch({
+        type: FETCH_USERS,
+        payload: data,
       });
-    }
-  );
+    });
 };
 //#endregion
-
 //#region LOGIN
 export const logIn = (data) => {
   return (dispatch) => {
@@ -86,26 +82,21 @@ export const logIn = (data) => {
       .then((response) => response.json())
       .then((response) => {
         //In case of success on dispatch, move to reducer
-        if (response.msg !== "Authentication Failed"){
+        if (response.msg !== "Authentication Failed") {
           return dispatch({
             type: LOGIN_USER_SUCCESS,
             payload: response,
           });
-        } 
-        else  
-        {
+        } else {
           return dispatch({
             type: LOGIN_USER_ERROR,
             payload: response.error,
           });
         }
-      }
-    );
+      });
   };
 };
-
 //#endregion
-
 //#region LOGOUT
 export const logOut = (dispatch) => {
   return {
@@ -113,7 +104,6 @@ export const logOut = (dispatch) => {
   };
 };
 //#endregion
-
 //#region AUTHENTICATION
 export const Authentication = (authentication) => {
   return {

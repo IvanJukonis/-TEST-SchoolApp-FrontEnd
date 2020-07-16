@@ -98,7 +98,6 @@ class Home extends Component {
     );
   }
 }
-
 //pasar los estados de la aplicacion en el home
 const mapStateToProps = (state) => {
   return {
@@ -106,10 +105,8 @@ const mapStateToProps = (state) => {
     authentication: state.Authentication,
   };
 };
-
 //despacho el estado
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({}, dispatch);
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

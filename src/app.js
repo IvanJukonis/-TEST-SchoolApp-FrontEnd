@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import {Provider} from "react-redux"
-//Traigo el store
+//Bring the store
 import store from "./redux/store/store"
-//Traigo las rutas
+//Bring the roads
 import Routes from "./routes/view"
 
 class App extends Component{
@@ -16,6 +16,5 @@ class App extends Component{
     
   }
 }
-
 //SE EXPORTA "App"
 export default App;
