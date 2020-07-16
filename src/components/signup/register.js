@@ -10,7 +10,7 @@ class Register extends Component {
     return (
       <div className="registerContainer">
         <Formik
-          initialValues={{password: "", email: "" }}
+          initialValues={{ password: "", email: "" }}
           onSubmit={(values) => {
             this.props.postUser(values);
           }}
@@ -26,26 +26,22 @@ class Register extends Component {
                   name="email"
                   placeholder="Email"
                 />
-
                 <Field
                   type="text"
                   className="registerPassword"
                   name="password"
                   placeholder="Password"
                 />
-                
                 <button className="btnSubmit" type="submit">
-                    Sign Up
-                  </button>
+                  Sign Up
+                </button>
                 <div className="btnRegisterLinks">
-                  
                   <p>
                     <Link className="btnBackHome" to="/home">
                       Back to home
                     </Link>
                   </p>
                 </div>
-                
               </div>
             </Form>
           )}
@@ -54,10 +50,8 @@ class Register extends Component {
     );
   }
 }
-
 const mapStateToProps = (state) => ({
   users: state.users,
   isLoading: state.isLoading,
 });
-
 export default connect(mapStateToProps, { postUser })(Register);

@@ -4,11 +4,9 @@
   height: 950px;
   top: 0px;
 }
-
 * {
   font-family: sans-serif; /* Change your font family */
 }
-
 .overlayDisabled {
   position: fixed;
   display: flex;
@@ -19,7 +17,6 @@
   background: rgba(0, 0, 0, 0.3);
   visibility: hidden;
 }
-
 .overlayEnabled {
   position: fixed;
   display: flex;
@@ -32,14 +29,12 @@
   background: rgba(0, 0, 0, 0.3);
   visibility: visible;
 }
-
 .popUpEnabled {
   position: absolute;
   width: 350px;
   background-color: transparent;
   visibility: visible;
 }
-
 .popUpDisabled {
   position: absolute;
   top: 0px;
@@ -48,7 +43,6 @@
   height: 0px;
   visibility: hidden;
 }
-
 .containerAddStudent {
   position: fixed;
   display: flex;
@@ -64,7 +58,6 @@
   box-shadow: 7px 13px 37px #000;
   color: white;
 }
-
 h4 {
   height: 40px;
   margin: 0;
@@ -73,7 +66,6 @@ h4 {
   border-bottom: 1px solid;
   font-size: 20px;
 }
-
 .nameStudent,
 .lastnameStudent,
 .ageStudent,
@@ -88,7 +80,6 @@ h4 {
   font-size: 14px;
   font-weight: bold;
 }
-
 .btnAddStudent {
   width: 100%;
   height: 40px;
@@ -98,7 +89,6 @@ h4 {
   border: none;
   color: white;
 }
-
 .overlayDisabledMark {
   position: fixed;
   display: flex;
@@ -109,7 +99,6 @@ h4 {
   background: rgba(0, 0, 0, 0.3);
   visibility: hidden;
 }
-
 .overlayEnabledMark {
   position: fixed;
   display: flex;
@@ -122,7 +111,6 @@ h4 {
   background: rgba(0, 0, 0, 0.3);
   visibility: visible;
 }
-
 .popUpDisabledMark {
   position: absolute;
   top: 0px;
@@ -131,14 +119,12 @@ h4 {
   height: 0px;
   visibility: hidden;
 }
-
 .popUpEnabledMark {
   position: absolute;
   width: 350px;
   visibility: visible;
   background-color: transparent;
 }
-
 .containerAddMarks {
   position: fixed;
   display: flex;
@@ -154,7 +140,6 @@ h4 {
   box-shadow: 7px 13px 37px #000;
   color: white;
 }
-
 .nameStudentMark,
 .subjectMark,
 .noteMark {
@@ -168,7 +153,6 @@ h4 {
   font-size: 14px;
   font-weight: bold;
 }
-
 .btnAddMark {
   width: 100%;
   height: 40px;
@@ -178,7 +162,6 @@ h4 {
   color: white;
   border: none;
 }
-
 .content-table-student,
 .content-table-mark {
   margin: 25px 0;
@@ -189,7 +172,6 @@ h4 {
   font-size: 0.9em;
   overflow: hidden;
 }
-
 .content-table-student thead tr,
 .content-table-mark thead tr {
   text-align: left;
@@ -197,35 +179,29 @@ h4 {
   color: #ffffff;
   font-weight: bold;
 }
-
 .content-table-student th,
 .content-table-student td,
 .content-table-mark th,
 .content-table-mark td {
   padding: 12px 15px;
 }
-
 .content-table-student tbody tr,
 .content-table-mark tbody tr {
   border-bottom: 1px solid #dddddd;
 }
-
 .content-table-student tbody tr:nth-of-type(even),
 .content-table-mark tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
 }
-
 .content-table-student tbody tr:last-of-type,
 .content-table-mark tbody tr:last-of-type {
   border-bottom: 2px solid #017bab;
 }
-
 .content-table-student tbody tr.active-row-student,
 .content-table-mark tbody tr.active-row-mark {
   font-weight: bold;
   color: #009879;
 }
-
 .btnAdd,
 .btnDelete {
   float: left;
@@ -239,7 +215,6 @@ h4 {
   font-family: Arial;
   text-decoration: none;
 }
-
 .btnLogOut {
   position: relative;
   left: 45%;
@@ -253,7 +228,6 @@ h4 {
   color: #fff;
   text-decoration: none;
 }
-
 @media (min-width: 320px) {
   .containerAddStudent {
     width: 300px;
@@ -268,7 +242,6 @@ h4 {
     left: 7%;
   }
 }
-
 @media (min-width: 768px) {
   .containerAddStudent {
     width: 400px;
@@ -276,7 +249,6 @@ h4 {
     left: 20%;
   }
 }
-
 @media (min-width: 900px) {
   .containerAddStudent {
     width: 400px;
@@ -284,14 +256,10 @@ h4 {
     left: 25%;
   }
 }
-
 @media (min-width: 1024px) {
   .containerAddStudent {
     width: 400px;
     height: 400px;
     left: 30%;
   }
-}
-
-@media (min-width: 1200px) {
 }

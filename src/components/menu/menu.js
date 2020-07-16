@@ -4,9 +4,11 @@ import { Authentication, logOut } from "../../redux/actions/login";
 import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { postStudent, fetchStudents} from "../../redux/actions/student";
-import {postQualification, fetchQualifications} from "../../redux/actions/qualification"
-import student from "../../redux/reducers/student";
+import { postStudent, fetchStudents } from "../../redux/actions/student";
+import {
+  postQualification,
+  fetchQualifications,
+} from "../../redux/actions/qualification";
 
 class Menu extends Component {
   constructor(props) {
@@ -16,13 +18,11 @@ class Menu extends Component {
       chek2: false,
     };
   }
-
   componentDidMount() {
     //el fetch va a al back y trae los estudiantes
     this.props.fetchStudents();
     this.props.fetchQualifications();
   }
-
   render() {
     console.log(this.props.qualificationList);
     return (
@@ -56,21 +56,18 @@ class Menu extends Component {
                     name="lastname"
                     placeholder="Last name"
                   />
-
                   <Field
                     type="text"
                     className="ageStudent"
                     name="age"
                     placeholder="Age"
                   />
-
                   <Field
                     type="text"
                     className="classStudent"
                     name="class"
                     placeholder="Class"
                   />
-
                   <button className="btnAddStudent" type="submit">
                     Add
                   </button>
@@ -119,29 +116,26 @@ class Menu extends Component {
                     placeholder="Student"
                   >
                     {/*El id me lo guarda en las values del fromik    ESTO ES LO NUEVO*/}
-                    {this.props.studentList.map(student =>{
-                     
-                      return(
-                      <option value={student._id}>{ `${student.name}-${student.lastname}`}</option>//$ (lo que esta adentro de la llave es una variable)
-                      )
+                    {this.props.studentList.map((student) => {
+                      return (
+                        <option
+                          value={student._id}
+                        >{`${student.name}-${student.lastname}`}</option> //$ (lo que esta adentro de la llave es una variable)
+                      );
                     })}
-                    
                   </Field>
-
                   <Field
                     type="text"
                     className="subjectMark"
                     name="subject"
                     placeholder="Subject"
                   />
-
                   <Field
                     type="text"
                     className="noteMark"
                     name="note"
                     placeholder="Note"
                   />
-
                   <button className="btnAddMark" type="submit">
                     Add
                   </button>
@@ -174,7 +168,7 @@ class Menu extends Component {
           </thead>
           <tbody>
             {this.props.studentList &&
-            //map recorre todos los estudiantes
+              //map recorre todos los estudiantes
               this.props.studentList.map((student) => {
                 // muestra los estudiantes si existen y sino no muestra nada, por cada estudiante devuelve una fila "tr", cada vez que se agrega uno nuevo se ejecuta otra vez el map
                 return (
@@ -201,7 +195,6 @@ class Menu extends Component {
           </button>
           <button className="btnDelete">Delete</button>
         </table>
-
         <table className="content-table-mark">
           <thead>
             <tr>
@@ -213,7 +206,7 @@ class Menu extends Component {
           </thead>
           <tbody>
             {this.props.qualificationList &&
-            //map recorre todos los estudiantes
+              //map recorre todos los estudiantes
               this.props.qualificationList.map((qualification) => {
                 // muestra los estudiantes si existen y sino no muestra nada, por cada estudiante devuelve una fila "tr", cada vez que se agrega uno nuevo se ejecuta otra vez el map
                 return (
@@ -249,23 +242,21 @@ class Menu extends Component {
     );
   }
 }
-
 const mapStateToProps = (state) => {
   return {
     isLoading: state.isLoading,
     authentication: state.AUTHENTICATION,
     studentList: state.students.students,
-    qualificationList: state.qualifications.qualifications // trae los estudiantes
+    qualificationList: state.qualifications.qualifications, // trae los estudiantes
   };
 };
-
 const mapDispatchToProps = {
   Authentication,
   logOut,
   postStudent,
   fetchStudents,
   postQualification,
-  fetchQualifications
+  fetchQualifications,
 };
 //mapstatetoprops = lo que vas a leer
 //mapdispatchtoprops = acciones q vas a usar

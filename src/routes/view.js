@@ -23,7 +23,6 @@ class Routes extends Component {
     );
   }
 }
-
 //Authentication Route
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -39,5 +38,4 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     }
   />
 );
-
 export default connect()(Routes);
