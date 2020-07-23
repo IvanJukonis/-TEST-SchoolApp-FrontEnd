@@ -19,12 +19,13 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      //State fot the PopUp
       check: false,
       chek2: false,
     };
   }
   componentDidMount() {
-    //el fetch va a al back y trae los estudiantes
+    //Fetch will go to back end and return the students
     this.props.fetchStudents();
     this.props.fetchQualifications();
   }
@@ -33,18 +34,21 @@ class Menu extends Component {
     console.log(this.props.qualificationList);
     return (
       <div className="containerMenu">
+        {/*PopUp*/}
         <div
           className={this.state.check ? "overlayEnabled" : "overlayDisabled"}
         ></div>
         <div className={this.state.check ? "popUpEnabled" : "popUpDisabled"}>
+         {/*Start Formik students*/}
           <Formik
             initialValues={{ name: "", lastname: "", age: "", class: "" }}
             onSubmit={(values) => {
+              //Call for the action "postStudent"
               this.props.postStudent(values);
               this.setState((prevState) => ({ check: !prevState.check }));
             }}
           >
-            {({ handleSubmit }) => (
+            {({ handleSubmit }) => (             
               <Form onSubmit={handleSubmit}>
                 <div className="containerAddStudent">
                   <h4> Add Students</h4>
@@ -77,6 +81,7 @@ class Menu extends Component {
                   <button className="btnAddStudent" type="submit">
                     Add
                   </button>
+                  {/*Close PopUp*/}
                   <button
                     type="button"
                     className="btnAddStudent"
@@ -103,9 +108,11 @@ class Menu extends Component {
             this.state.check2 ? "popUpEnabledMark" : "popUpDisabledMark"
           }
         >
+          {/*Start Formik qualification*/}
           <Formik
             initialValues={{ studentId: "", subject: "", note: "" }}
             onSubmit={(values) => {
+              //Call for the action "postQualification"
               this.props.postQualification(values);
               this.setState((prevState) => ({ check2: !prevState.check2 }));
             }}
@@ -121,13 +128,14 @@ class Menu extends Component {
                     name="studentId"
                     placeholder="Student"
                   >
-                    {/*El id me lo guarda en las values del fromik    ESTO ES LO NUEVO*/}
-                    <option defaultValue>Select an student</option> {/*pone como default el valor del select*/}
+                    <option defaultValue>Select an student</option> 
                     {this.props.studentList.map((student) => {
                       return (
                         <option
+                        //The id is saved into the values of formik
                           value={student._id}
-                        >{`${student.name}-${student.lastname}`}</option> //$ (lo que esta adentro de la llave es una variable)
+                        //Concatenate the name student with the lastname
+                        >{`${student.name}-${student.lastname}`}</option>
                       );
                     })}
                   </Field>
@@ -146,6 +154,7 @@ class Menu extends Component {
                   <button className="btnAddMark" type="submit">
                     Add
                   </button>
+                  {/*Close PopUp*/}
                   <button
                     type="button"
                     className="btnAddMark"
@@ -165,6 +174,7 @@ class Menu extends Component {
         <table className="content-table-student">
           <thead>
             <tr>
+              {/*Name of the columns*/}
               <th>Actions</th>
               <th>Name</th>
               <th>Last name</th>
@@ -174,21 +184,22 @@ class Menu extends Component {
           </thead>
           <tbody>
             {this.props.studentList &&
-              //map recorre todos los estudiantes
               this.props.studentList.map((student) => {
-                // muestra los estudiantes si existen y sino no muestra nada, por cada estudiante devuelve una fila "tr", cada vez que se agrega uno nuevo se ejecuta otra vez el map
+                //Show the students if they exist. For aeach student return a row. Everytime it is run a new one is added
                 return (
                   <tr>
                     <td>
                       <button
                         className="btnDeleteStudent"
                         onClick={() => {
+                          //Call for the action "deleteStudent"
                           this.props.deleteStudent(student._id);
                         }}
                       >
                         Delete
                       </button>
-                    </td>     
+                    </td>
+                    {/*Bring the atributte of the student*/}     
                     <td>{student.name}</td>
                     <td>{student.lastname}</td>
                     <td>{student.age}</td>
@@ -197,6 +208,7 @@ class Menu extends Component {
                 );
               })}
           </tbody>
+          {/*Open PopUp*/}
           <button
             className="btnAdd"
             onClick={() =>
@@ -217,19 +229,20 @@ class Menu extends Component {
           </thead>
           <tbody>
             {this.props.qualificationList &&
-              //map recorre todos los estudiantes
               this.props.qualificationList.map((qualification) => {
-                // muestra los estudiantes si existen y sino no muestra nada, por cada estudiante devuelve una fila "tr", cada vez que se agrega uno nuevo se ejecuta otra vez el map
+                //Show the qualification if they exist. For each qualification return a row. Everytime it is run a new one is added
                 return (
                   <tr>
                     <button
                       className="btnDeleteQualification"
                       onClick={() => {
+                        //Call for the action "deleteQualification"
                         this.props.deleteQualification(qualification.student._id);
                       }}
                     >
                       Delete
                     </button>
+                    {/*Bring the atributte of the student*/}
                     <td>{`${qualification.student.name}-${qualification.student.lastname}`}</td>
                     <td>{qualification.subject}</td>
                     <td>{qualification.note}</td>
@@ -237,6 +250,7 @@ class Menu extends Component {
                 );
               })}
           </tbody>
+          {/*Open PopUp*/}
           <button
             className="btnAdd"
             onClick={() =>
@@ -246,7 +260,6 @@ class Menu extends Component {
             Add
           </button>
         </table>
-
         <div className="buttonLogOut">
           <Link className="btnLogOut" to="/login" onClick={this.props.logOut}>
             Log Out
@@ -260,10 +273,11 @@ const mapStateToProps = (state) => {
   return {
     isLoading: state.isLoading,
     authentication: state.AUTHENTICATION,
-    studentList: state.students.students,
-    qualificationList: state.qualifications.qualifications, 
+    studentList: state.students.students, // Bring the students
+    qualificationList: state.qualifications.qualifications, //Bring the qualification
   };
 };
+//Call for the actions
 const mapDispatchToProps = {
   Authentication,
   logOut,
@@ -274,6 +288,4 @@ const mapDispatchToProps = {
   deleteStudent,
   deleteQualification,
 };
-//mapstatetoprops = lo que vas a leer
-//mapdispatchtoprops = acciones q vas a usar
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);
