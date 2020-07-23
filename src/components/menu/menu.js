@@ -4,10 +4,15 @@ import { Authentication, logOut } from "../../redux/actions/login";
 import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { postStudent, fetchStudents } from "../../redux/actions/student";
+import {
+  postStudent,
+  fetchStudents,
+  deleteStudent,
+} from "../../redux/actions/student";
 import {
   postQualification,
   fetchQualifications,
+  deleteQualification,
 } from "../../redux/actions/qualification";
 
 class Menu extends Component {
@@ -23,6 +28,7 @@ class Menu extends Component {
     this.props.fetchStudents();
     this.props.fetchQualifications();
   }
+
   render() {
     console.log(this.props.qualificationList);
     return (
@@ -116,6 +122,7 @@ class Menu extends Component {
                     placeholder="Student"
                   >
                     {/*El id me lo guarda en las values del fromik    ESTO ES LO NUEVO*/}
+                    <option defaultValue>Select an student</option> {/*pone como default el valor del select*/}
                     {this.props.studentList.map((student) => {
                       return (
                         <option
@@ -158,9 +165,8 @@ class Menu extends Component {
         <table className="content-table-student">
           <thead>
             <tr>
-              <th>Select</th>
-              <th>id</th>
-              <th>name</th>
+              <th>Actions</th>
+              <th>Name</th>
               <th>Last name</th>
               <th>Age</th>
               <th>Class</th>
@@ -174,9 +180,15 @@ class Menu extends Component {
                 return (
                   <tr>
                     <td>
-                      <input type="checkbox"></input>
-                    </td>
-                    <td>{student._id}</td>
+                      <button
+                        className="btnDeleteStudent"
+                        onClick={() => {
+                          this.props.deleteStudent(student._id);
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </td>     
                     <td>{student.name}</td>
                     <td>{student.lastname}</td>
                     <td>{student.age}</td>
@@ -193,12 +205,11 @@ class Menu extends Component {
           >
             Add
           </button>
-          <button className="btnDelete">Delete</button>
         </table>
         <table className="content-table-mark">
           <thead>
             <tr>
-              <th>Select</th>
+              <th>Actions</th>
               <th>Student</th>
               <th>Subject</th>
               <th>Note</th>
@@ -211,13 +222,17 @@ class Menu extends Component {
                 // muestra los estudiantes si existen y sino no muestra nada, por cada estudiante devuelve una fila "tr", cada vez que se agrega uno nuevo se ejecuta otra vez el map
                 return (
                   <tr>
-                    <td>
-                      <input type="checkbox"></input>
-                    </td>
+                    <button
+                      className="btnDeleteQualification"
+                      onClick={() => {
+                        this.props.deleteQualification(qualification.student._id);
+                      }}
+                    >
+                      Delete
+                    </button>
                     <td>{`${qualification.student.name}-${qualification.student.lastname}`}</td>
                     <td>{qualification.subject}</td>
                     <td>{qualification.note}</td>
-                    <td>{qualification.class}</td>
                   </tr>
                 );
               })}
@@ -230,7 +245,6 @@ class Menu extends Component {
           >
             Add
           </button>
-          <button className="btnDelete">Delete</button>
         </table>
 
         <div className="buttonLogOut">
@@ -247,7 +261,7 @@ const mapStateToProps = (state) => {
     isLoading: state.isLoading,
     authentication: state.AUTHENTICATION,
     studentList: state.students.students,
-    qualificationList: state.qualifications.qualifications, // trae los estudiantes
+    qualificationList: state.qualifications.qualifications, 
   };
 };
 const mapDispatchToProps = {
@@ -257,6 +271,8 @@ const mapDispatchToProps = {
   fetchStudents,
   postQualification,
   fetchQualifications,
+  deleteStudent,
+  deleteQualification,
 };
 //mapstatetoprops = lo que vas a leer
 //mapdispatchtoprops = acciones q vas a usar
