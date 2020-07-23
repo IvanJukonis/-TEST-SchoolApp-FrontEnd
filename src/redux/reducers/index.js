@@ -3,7 +3,7 @@ import loginReducer from "./login";
 import productReducer from "./student";
 import qualificationReducer from "./qualification";
 
-//combina los reducers
+//Combine the reducers
 export default combineReducers({
   users: loginReducer,
   students: productReducer,

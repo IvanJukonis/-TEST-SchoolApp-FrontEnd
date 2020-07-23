@@ -8,12 +8,11 @@ import Routes from "./routes/view";
 class App extends Component {
   render() {
     return (
-      //Provider habilita el store para todas las rutas
+      //Provider: enable the store for everyone routes
       <Provider store={store}>
         <Routes />
       </Provider>
     );
   }
 }
-//SE EXPORTA "App"
 export default App;
