@@ -15,7 +15,7 @@ import store from "../store/store";
 
 //#region GET STUDENTS
 export const fetchStudents = () => (dispatch) => {
-  fetch("http://localhost:5000/students")
+  fetch("https://stormy-brook-34938.herokuapp.com/api/students")
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -43,7 +43,7 @@ export const postStudent = (student) => {
       },
       body: JSON.stringify(student),
     };
-    return fetch(`http://localhost:5000/students`, request)
+    return fetch(`https://stormy-brook-34938.herokuapp.com/api/students`, request)
       .then((response) => response.json())
       .then((data) => {
         if (!Object.entries(data).length) {
@@ -80,7 +80,7 @@ export const updateStudent = (student) => {
       },
       body: JSON.stringify({ student }),
     };
-    return fetch(`http://localhost:5000/students/${student._id}`, options)
+    return fetch(`https://stormy-brook-34938.herokuapp.com/api/students/${student._id}`, options)
       .then((response) => response.json())
       .then((data) => {
         if (!Object.entries(data).length) {
@@ -113,7 +113,7 @@ export const deleteStudent = (code) => {
         "Content-Type": "application/json",
       },
     };
-    return fetch(`http://localhost:5000/students/${code}`, options)
+    return fetch(`https://stormy-brook-34938.herokuapp.com/api/students/${code}`, options)
       .then((response) => response.json())
       .then((data) => {
         if (!Object.entries(data).length) {

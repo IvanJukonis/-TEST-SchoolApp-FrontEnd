@@ -15,7 +15,7 @@ import store from "../store/store";
 
 //#region GET QUALIFICATIONS
 export const fetchQualifications = () => (dispatch) => {
-  fetch("http://localhost:5000/qualifications")
+  fetch("https://stormy-brook-34938.herokuapp.com/api/qualifications")
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -43,7 +43,7 @@ export const postQualification = (qualification) => {
       },
       body: JSON.stringify(qualification),
     };
-    return fetch(`http://localhost:5000/qualifications`, request)
+    return fetch(`https://stormy-brook-34938.herokuapp.com/api/qualifications`, request)
       .then((response) => response.json())
       .then((data) => {
         if (!Object.entries(data).length) {
@@ -81,7 +81,7 @@ export const updateQualification = (qualification) => {
       body: JSON.stringify({ qualification }),
     };
     return fetch(
-      `http://localhost:5000/qualifications/${qualification._id}`,
+      `https://stormy-brook-34938.herokuapp.com/api/qualifications/${qualification._id}`,
       options
     )
       .then((response) => response.json())
@@ -117,7 +117,7 @@ export const deleteQualification = (code) => {
         "Content-Type": "application/json",
       },
     };
-    return fetch(`http://localhost:5000/qualifications/${code}`, options)
+    return fetch(`https://stormy-brook-34938.herokuapp.com/api/qualifications/${code}`, options)
       .then((response) => response.json())
       .then((data) => {
         if (!Object.entries(data).length) {
