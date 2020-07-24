@@ -24,7 +24,7 @@ export const postUser = (user) => {
       },
       body: JSON.stringify(user),
     };
-    return fetch("https://stormy-brook-34938.herokuapp.com/api/user/signup", request)
+    return fetch("http://localhost:5000/api/user/signup", request)
       .then((response) => response.json())
       .then((data) => {
         console.log("POST USER", data);
@@ -49,7 +49,7 @@ export const postUser = (user) => {
 //#endregion
 //#region GET USER
 export const fetchUser = () => (dispatch) => {
-  fetch("https://stormy-brook-34938.herokuapp.com/api/user/")
+  fetch("http://localhost:5000/api/user/")
     .then((response) => response.json())
     .then((data) => {
       return dispatch({
@@ -78,7 +78,7 @@ export const logIn = (data) => {
       }),
     };
     //BackEnd Fetch
-    return fetch("https://stormy-brook-34938.herokuapp.com/api/user/login", request)
+    return fetch("http://localhost:5000/api/user/login", request)
       .then((response) => response.json())
       .then((response) => {
         //In case of success on dispatch, move to reducer

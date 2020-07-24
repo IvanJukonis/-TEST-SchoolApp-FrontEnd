@@ -26,11 +26,6 @@ class Home extends Component {
                   Register
                 </Link>
               </li>
-              <li>
-                <Link className="contact" to="/contact">
-                  Contacto
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
@@ -38,15 +33,7 @@ class Home extends Component {
           <div className="section">
             <h2>Information</h2>
             <p>
-              Escribi aca ivan en ingles la info de lo que hace
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
+              
             </p>
             <p>
               Escribi aca ivan en ingles la info de lo que hace
