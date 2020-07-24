@@ -15,7 +15,7 @@ import store from "../store/store";
 
 //#region GET STUDENTS
 export const fetchStudents = () => (dispatch) => {
-  fetch("https://stormy-brook-34938.herokuapp.com/api/students")
+  fetch("http://localhost:5000/api/students")
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -43,7 +43,7 @@ export const postStudent = (student) => {
       },
       body: JSON.stringify(student),
     };
-    return fetch(`https://stormy-brook-34938.herokuapp.com/api/students`, request)
+    return fetch(`http://localhost:5000/api/students`, request)
       .then((response) => response.json())
       .then((data) => {
         if (!Object.entries(data).length) {
@@ -80,7 +80,7 @@ export const updateStudent = (student) => {
       },
       body: JSON.stringify({ student }),
     };
-    return fetch(`https://stormy-brook-34938.herokuapp.com/api/students/${student._id}`, options)
+    return fetch(`http://localhost:5000/api/students/${student._id}`, options)
       .then((response) => response.json())
       .then((data) => {
         if (!Object.entries(data).length) {
@@ -113,16 +113,23 @@ export const deleteStudent = (code) => {
         "Content-Type": "application/json",
       },
     };
-    return fetch(`https://stormy-brook-34938.herokuapp.com/api/students/${code}`, options)
-      .then((response) => response.json())
+    return fetch(`http://localhost:5000/api/students/${code}`, options)
+      .then((response) => response.json()) 
       .then((data) => {
         if (!Object.entries(data).length) {
           return Promise.reject(data);
         }
-        return dispatch({
-          type: DELETE_STUDENT_SUCCESS,
-          payload: data,
-        });
+        if (data.message === "error") {
+          return dispatch({
+            type: DELETE_STUDENT_ERROR,
+          });
+        }
+        else{
+          return dispatch({
+            type: DELETE_STUDENT_SUCCESS,
+            payload: data,
+          });
+        }      
       })
       .catch((error) => {
         return dispatch({

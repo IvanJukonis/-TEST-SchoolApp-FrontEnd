@@ -237,7 +237,7 @@ class Menu extends Component {
                       className="btnDeleteQualification"
                       onClick={() => {
                         //Call for the action "deleteQualification"
-                        this.props.deleteQualification(qualification.student._id);
+                        this.props.deleteQualification(qualification._id);
                       }}
                     >
                       Delete

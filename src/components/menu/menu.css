@@ -131,7 +131,7 @@ h4 {
   flex-direction: column;
   justify-content: center;
   width: 400px;
-  height: 340px;
+  height: 400px;
   top: 10%;
   left: 35%;
   padding: 20px 30px;
@@ -140,10 +140,20 @@ h4 {
   box-shadow: 7px 13px 37px #000;
   color: white;
 }
-.nameStudentMark,
 .subjectMark,
 .noteMark {
   width: 95%;
+  padding: 11px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #017bab;
+  border-radius: 12px;
+  background: #252323;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+.nameStudentMark {
+  width: 100%;
   padding: 11px 10px;
   margin-bottom: 15px;
   border: 1px solid #017bab;
@@ -249,9 +259,19 @@ h4 {
     height: 400px;
     left: 5%;
   }
+  .containerAddMarks {
+    width: 300px;
+    height: 400px;
+    left: 5%;
+  }
 }
 @media (min-width: 414px) {
   .containerAddStudent {
+    width: 300px;
+    height: 400px;
+    left: 7%;
+  }
+  .containerAddMarks {
     width: 300px;
     height: 400px;
     left: 7%;
@@ -263,9 +283,19 @@ h4 {
     height: 400px;
     left: 20%;
   }
+  .containerAddMarks {
+    width: 400px;
+    height: 400px;
+    left: 20%;
+  }
 }
 @media (min-width: 900px) {
   .containerAddStudent {
+    width: 400px;
+    height: 400px;
+    left: 25%;
+  }
+  .containerAddMarks {
     width: 400px;
     height: 400px;
     left: 25%;
@@ -275,6 +305,11 @@ h4 {
   .containerAddStudent {
     width: 400px;
     height: 400px;
-    left: 30%;
+    left: 35%;
+  }
+  .containerAddMarks {
+    width: 400px;
+    height: 400px;
+    left: 35%;
   }
 }

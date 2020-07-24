@@ -45,8 +45,7 @@
   background: rgba(182, 59, 59, 0.8);
 }
 .login,
-.register,
-.contact {
+.register {
   color: white;
   text-decoration: none;
 }
