@@ -33,52 +33,9 @@ class Home extends Component {
           <div className="section">
             <h2>Information</h2>
             <p>
-              
-            </p>
-            <p>
-              Escribi aca ivan en ingles la info de lo que hace
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-            </p>
-            <p>
-              Escribi aca ivan en ingles la info de lo que hace
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-            </p>
-            <p>
-              Escribi aca ivan en ingles la info de lo que hace
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-            </p>
-            <p>
-              Escribi aca ivan en ingles la info de lo que hace
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-              ssssssssssssssssssssssssssssssssssssssssssssss
-            </p>
+            This is a web application designed by students Ivan Jukonis and Santiago Ottolini from UAI university. 
+            The objective of this application is to demonstrate the knowledge acquired on the subject MCGA dictated by professor David Curras.
+            </p>         
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import { logIn } from "../../redux/actions/login";
 import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
+import * as Yup from "yup";
 
 class Login extends Component {
   constructor(props) {
@@ -30,6 +31,15 @@ class Login extends Component {
         <Formik
           initialValues={{ email: "", password: "" }}
           onSubmit={this.getLogin}
+          validationSchema={Yup.object().shape({
+            email: Yup.string()
+              .min(2,)
+              .required("Required"),
+            password: Yup.string()
+              .min(2,)
+              .required("Required"),           
+          })}
+
         >
           {({ handleSubmit }) => (
             <Form onSubmit={handleSubmit}>
