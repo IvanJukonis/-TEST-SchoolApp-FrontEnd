@@ -4,6 +4,7 @@ import { Authentication, logOut } from "../../redux/actions/login";
 import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import * as Yup from "yup";
 import {
   postStudent,
   fetchStudents,
@@ -39,7 +40,7 @@ class Menu extends Component {
           className={this.state.check ? "overlayEnabled" : "overlayDisabled"}
         ></div>
         <div className={this.state.check ? "popUpEnabled" : "popUpDisabled"}>
-         {/*Start Formik students*/}
+          {/*Start Formik students*/}
           <Formik
             initialValues={{ name: "", lastname: "", age: "", class: "" }}
             onSubmit={(values) => {
@@ -47,8 +48,23 @@ class Menu extends Component {
               this.props.postStudent(values);
               this.setState((prevState) => ({ check: !prevState.check }));
             }}
+            //Validation with Yup
+            validationSchema={Yup.object().shape({
+              name: Yup.string()
+                .min(2, "muy cortito")
+                .required("Required"),
+              lastname: Yup.string()
+                .min(2, "muy cortito")
+                .required("Required"),
+              age: Yup.number()
+                .min(2, "muy cortito")
+                .required("Required"),
+              class: Yup.string()
+                .min(2, "muy cortito")
+                .required("Required"),
+            })}
           >
-            {({ handleSubmit }) => (             
+            {({ handleSubmit }) => (
               <Form onSubmit={handleSubmit}>
                 <div className="containerAddStudent">
                   <h4> Add Students</h4>
@@ -116,6 +132,17 @@ class Menu extends Component {
               this.props.postQualification(values);
               this.setState((prevState) => ({ check2: !prevState.check2 }));
             }}
+            validationSchema={Yup.object().shape({
+              studentId: Yup.string()
+                .min(2, "muy cortito")
+                .required("Required"),
+              subject: Yup.string()
+                .min(2, "muy cortito")
+                .required("Required"),
+              note: Yup.number()
+                .min(2, "muy cortito")
+                .required("Required"),
+            })}
           >
             {({ handleSubmit }) => (
               <Form onSubmit={handleSubmit}>
@@ -128,13 +155,13 @@ class Menu extends Component {
                     name="studentId"
                     placeholder="Student"
                   >
-                    <option defaultValue>Select an student</option> 
+                    <option defaultValue>Select an student</option>
                     {this.props.studentList.map((student) => {
                       return (
                         <option
-                        //The id is saved into the values of formik
+                          //The id is saved into the values of formik
                           value={student._id}
-                        //Concatenate the name student with the lastname
+                          //Concatenate the name student with the lastname
                         >{`${student.name}-${student.lastname}`}</option>
                       );
                     })}
@@ -199,7 +226,7 @@ class Menu extends Component {
                         Delete
                       </button>
                     </td>
-                    {/*Bring the atributte of the student*/}     
+                    {/*Bring the atributte of the student*/}
                     <td>{student.name}</td>
                     <td>{student.lastname}</td>
                     <td>{student.age}</td>

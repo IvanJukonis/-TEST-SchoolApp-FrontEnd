@@ -15,14 +15,14 @@
   top: 0;
   text-align: center;
   box-shadow: 7px 1px 37px #000;
-  background-color: #e73c3c;
+  background-color: #017bab;
   overflow: hidden;
   transition: all 0.5s ease;
 }
 .text1 {
   position: relative;
   margin-bottom: 20px;
-  background: #e73c3c;
+  background: #017bab;
   color: white;
   font-size: 60px;
   font-weight: 700;
@@ -42,7 +42,7 @@
   bottom: 0;
   width: 100%;
   line-height: 60px;
-  background: rgba(182, 59, 59, 0.8);
+  background: rgba(53, 137, 206, 0.8);
 }
 .login,
 .register {
@@ -77,7 +77,7 @@ p {
   margin-bottom: 2rem;
   line-height: 2;
   color: black;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family:Arial, Helvetica, sans-serif
 }
 .wrapper {
   max-width: 800px;
