@@ -35,20 +35,16 @@ export default function (state = initialState, action) {
       };
     case LOGIN_USER_PENDING:
       return {
-        //CAEMOS ACA DESDE EL ACTION EN DONDE NOS DIJIERON QUE SE ESTA LOGEANDO ALGUIEN
-        //EL REDUCER HACE UNA COPIA DEL STORE Y LE DICE QUE AGUANTE PORQUE VAN A HACER MAS COSAS --> ACTION
+        //Create a copy from the state
         ...state,
         isLoading: true,
         failedLogin: false,
       };
-    //PREGUNTAR PARA QUE ESTA EL PENDING
-
-    //CAEMOS ACA DESDE EL ACTION QUE
     case LOGIN_USER_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        //PAYLOAD ES LA RES QUE VINO DEL BACK Y ESA RES VENIA CON UN TOKEN ENTONCES GUARDAMOS ESE TOKEN EN LA VARIABLE TOKEN
+        //Get the token from the backend
         token: action.payload.token,
         authentication: true,
       };

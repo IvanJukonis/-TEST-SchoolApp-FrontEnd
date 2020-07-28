@@ -45,14 +45,14 @@ class Home extends Component {
     );
   }
 }
-//pasar los estados de la aplicacion en el home
+//Get state
 const mapStateToProps = (state) => {
   return {
     isLoading: state.isLoading,
     authentication: state.Authentication,
   };
 };
-//despacho el estado
+//Dispatch
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({}, dispatch);
 };

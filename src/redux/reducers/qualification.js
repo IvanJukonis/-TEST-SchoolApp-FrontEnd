@@ -107,7 +107,8 @@ export default function (state = initialState, action) {
       const qualificationToDelete = newQualification.findIndex(
         (ele) => ele._id === action.payload._id
       );
-
+      
+      //Separates the selected qualification from the rest
       newQualification.splice(qualificationToDelete, 1);
       return {
         ...state,

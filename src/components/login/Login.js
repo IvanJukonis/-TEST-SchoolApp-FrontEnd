@@ -13,14 +13,10 @@ class Login extends Component {
     super(props);
     this.getLogin = this.getLogin.bind(this);
   }
-  //captura los datos de redux
+  //Authentication
   getLogin = (values) => {
-    console.log(this.props);
     this.props.logIn(values).then((response) => {
-      console.log(response);
-      //si las props estan autorizadas de redux
       if (this.props.authentication) {
-        //te tira al home privado
         this.props.history.push("/menu");
       }
     });
@@ -31,6 +27,7 @@ class Login extends Component {
         <Formik
           initialValues={{ email: "", password: "" }}
           onSubmit={this.getLogin}
+          //Formik validation
           validationSchema={Yup.object().shape({
             email: Yup.string()
               .min(2,)
@@ -63,12 +60,12 @@ class Login extends Component {
                       Sign In
                     </button>
                   ) : (
-                    //Barrita que carga
+                    //Loading bar
                     <ClipLoader size={25} color={"white"} loading />
                   )}
                   <div>
                     {this.props.failedLogin ? (
-                      <div className="bad-credentials"></div>
+                      <div className="loginError"></div>
                     ) : null}
                   </div>
                 </div>
