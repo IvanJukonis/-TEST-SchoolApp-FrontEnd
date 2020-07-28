@@ -135,13 +135,13 @@ class Menu extends Component {
             //Formik validation
             validationSchema={Yup.object().shape({
               studentId: Yup.string()
-                .min(2,)
+                .min(2)
                 .required("Required"),
               subject: Yup.string()
-                .min(2,)
+                .min(2)
                 .required("Required"),
               note: Yup.number()
-                .min(2,)
+                .min(2)
                 .required("Required"),
             })}
           >
