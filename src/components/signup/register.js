@@ -4,6 +4,7 @@ import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
 import { postUser } from "../../redux/actions/login";
 import { Link } from "react-router-dom";
+import * as Yup from "yup";
 
 class Register extends Component {
   render() {
@@ -14,6 +15,15 @@ class Register extends Component {
           onSubmit={(values) => {
             this.props.postUser(values);
           }}
+          //Formik validation
+          validationSchema={Yup.object().shape({
+            password: Yup.string()
+              .min(2,)
+              .required("Required"),
+            email: Yup.string()
+              .min(2,)
+              .required("Required"),           
+          })}
         >
           {({ handleSubmit }) => (
             <Form onSubmit={handleSubmit}>

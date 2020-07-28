@@ -20,13 +20,13 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //State fot the PopUp
+      //PopUp overlayState
       check: false,
       chek2: false,
     };
   }
   componentDidMount() {
-    //Fetch will go to back end and return the students
+    //Get students and qualifications from backend api rest
     this.props.fetchStudents();
     this.props.fetchQualifications();
   }
@@ -44,23 +44,23 @@ class Menu extends Component {
           <Formik
             initialValues={{ name: "", lastname: "", age: "", class: "" }}
             onSubmit={(values) => {
-              //Call for the action "postStudent"
+              //Call action "postStudent"
               this.props.postStudent(values);
               this.setState((prevState) => ({ check: !prevState.check }));
             }}
-            //Validation with Yup
+            //Formik validation
             validationSchema={Yup.object().shape({
               name: Yup.string()
-                .min(2, "muy cortito")
+                .min(2,)
                 .required("Required"),
               lastname: Yup.string()
-                .min(2, "muy cortito")
+                .min(2,)
                 .required("Required"),
               age: Yup.number()
-                .min(2, "muy cortito")
+                .min(2,)
                 .required("Required"),
               class: Yup.string()
-                .min(2, "muy cortito")
+                .min(2,)
                 .required("Required"),
             })}
           >
@@ -128,19 +128,20 @@ class Menu extends Component {
           <Formik
             initialValues={{ studentId: "", subject: "", note: "" }}
             onSubmit={(values) => {
-              //Call for the action "postQualification"
+              //Call action "postQualification"
               this.props.postQualification(values);
               this.setState((prevState) => ({ check2: !prevState.check2 }));
             }}
+            //Formik validation
             validationSchema={Yup.object().shape({
               studentId: Yup.string()
-                .min(2, "muy cortito")
+                .min(2,)
                 .required("Required"),
               subject: Yup.string()
-                .min(2, "muy cortito")
+                .min(2,)
                 .required("Required"),
               note: Yup.number()
-                .min(2, "muy cortito")
+                .min(2,)
                 .required("Required"),
             })}
           >
@@ -212,14 +213,14 @@ class Menu extends Component {
           <tbody>
             {this.props.studentList &&
               this.props.studentList.map((student) => {
-                //Show the students if they exist. For aeach student return a row. Everytime it is run a new one is added
+                //Show the students if they exist. For each student return a row. Everytime it is run a new one is added
                 return (
                   <tr>
                     <td>
                       <button
                         className="btnDeleteStudent"
                         onClick={() => {
-                          //Call for the action "deleteStudent"
+                          //Call action "deleteStudent"
                           this.props.deleteStudent(student._id);
                         }}
                       >
@@ -263,7 +264,7 @@ class Menu extends Component {
                     <button
                       className="btnDeleteQualification"
                       onClick={() => {
-                        //Call for the action "deleteQualification"
+                        //Call action "deleteQualification"
                         this.props.deleteQualification(qualification._id);
                       }}
                     >
@@ -304,7 +305,7 @@ const mapStateToProps = (state) => {
     qualificationList: state.qualifications.qualifications, //Bring the qualification
   };
 };
-//Call for the actions
+//Call  actions
 const mapDispatchToProps = {
   Authentication,
   logOut,

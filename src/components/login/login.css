@@ -40,7 +40,7 @@ h5 {
   justify-content: center;
   margin-bottom: 500px;
 }
-.bad-credentials {
+.loginError {
   display: flex;
   justify-content: center;
 }
