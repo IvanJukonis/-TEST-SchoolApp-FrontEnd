@@ -3,9 +3,6 @@ import {
   ADD_QUALIFICATION_PENDING,
   ADD_QUALIFICATION_SUCCESS,
   ADD_QUALIFICATION_ERROR,
-  UPDATE_QUALIFICATION_PENDING,
-  UPDATE_QUALIFICATION_SUCCESS,
-  UPDATE_QUALIFICATION_ERROR,
   DELETE_QUALIFICATION_PENDING,
   DELETE_QUALIFICATION_SUCCESS,
   DELETE_QUALIFICATION_ERROR,
@@ -17,11 +14,10 @@ import store from "../store/store";
 export const fetchQualifications = () => (dispatch) => {
   fetch("http://localhost:5000/api/qualifications")
     .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
+    .then((response) => {
       return dispatch({
         type: FETCH_QUALIFICATION,
-        payload: data,
+        payload: response,
       });
     });
 };
@@ -45,14 +41,14 @@ export const postQualification = (qualification) => {
     };
     return fetch(`http://localhost:5000/api/qualifications`, request)
       .then((response) => response.json())
-      .then((data) => {
-        if (!Object.entries(data).length) {
-          return Promise.reject(data);
+      .then((response) => {
+        if (!Object.entries(response).length) {
+          return Promise.reject(response);
         }
         return dispatch({
           type: ADD_QUALIFICATION_SUCCESS,
           payload: {
-            qualification: data.createdQualification,
+            qualification: response.createdQualification,
           },
         });
       })
@@ -67,7 +63,6 @@ export const postQualification = (qualification) => {
 //#endregion
 //#region UPDATE QUALIFICATIONS
 export const updateQualification = (qualification) => {
-  console.log(qualification);
   return (dispatch) => {
     dispatch({
       type: UPDATE_QUALIFICATION_PENDING,
@@ -85,14 +80,14 @@ export const updateQualification = (qualification) => {
       options
     )
       .then((response) => response.json())
-      .then((data) => {
-        if (!Object.entries(data).length) {
-          return Promise.reject(data);
+      .then((response) => {
+        if (!Object.entries(response).length) {
+          return Promise.reject(response);
         }
 
         return dispatch({
           type: UPDATE_QUALIFICATION_SUCCESS,
-          payload: data,
+          payload: response,
         });
       })
       .catch((error) => {
@@ -119,13 +114,13 @@ export const deleteQualification = (code) => {
     };
     return fetch(`http://localhost:5000/api/qualifications/${code}`, options)
       .then((response) => response.json())
-      .then((data) => {
-        if (!Object.entries(data).length) {
-          return Promise.reject(data);
+      .then((response) => {
+        if (!Object.entries(response).length) {
+          return Promise.reject(response);
         }
         return dispatch({
           type: DELETE_QUALIFICATION_SUCCESS,
-          payload: data,
+          payload: response,
         });
       })
       .catch((error) => {
