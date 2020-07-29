@@ -26,15 +26,14 @@ export const postUser = (user) => {
     };
     return fetch("http://localhost:5000/api/user/signup", request)
       .then((response) => response.json())
-      .then((data) => {
-        console.log("POST USER", data);
-        if (!Object.entries(data).length) {
-          return Promise.reject(data);
+      .then((response) => {
+        if (!Object.entries(response).length) {
+          return Promise.reject(response);
         }
         return dispatch({
           type: ADD_USER_SUCCESS,
           payload: {
-            user: data,
+            user: response,
           },
         });
       })
@@ -51,16 +50,16 @@ export const postUser = (user) => {
 export const fetchUser = () => (dispatch) => {
   fetch("http://localhost:5000/api/user/")
     .then((response) => response.json())
-    .then((data) => {
+    .then((response) => {
       return dispatch({
         type: FETCH_USERS,
-        payload: data,
+        payload: response,
       });
     });
 };
 //#endregion
 //#region LOGIN
-export const logIn = (data) => {
+export const logIn = (response) => {
   return (dispatch) => {
     //Dispatch action
     dispatch({

@@ -142,7 +142,6 @@ class Menu extends Component {
                     name="studentId"
                     placeholder="Student"
                   >
-                    <option defaultValue>Select an student</option>
                     {this.props.studentList.map((student) => {
                       return (
                         <option
