@@ -61,44 +61,7 @@ export const postQualification = (qualification) => {
   };
 };
 //#endregion
-//#region UPDATE QUALIFICATIONS
-export const updateQualification = (qualification) => {
-  return (dispatch) => {
-    dispatch({
-      type: UPDATE_QUALIFICATION_PENDING,
-    });
-    const options = {
-      timeout: 25000,
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ qualification }),
-    };
-    return fetch(
-      `http://localhost:5000/api/qualifications/${qualification._id}`,
-      options
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        if (!Object.entries(response).length) {
-          return Promise.reject(response);
-        }
 
-        return dispatch({
-          type: UPDATE_QUALIFICATION_SUCCESS,
-          payload: response,
-        });
-      })
-      .catch((error) => {
-        return dispatch({
-          type: UPDATE_QUALIFICATION_ERROR,
-          payload: error,
-        });
-      });
-  };
-};
-//#endregion
 //#region DELETE QUALIFICATION
 export const deleteQualification = (code) => {
   return (dispatch) => {
