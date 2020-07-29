@@ -18,7 +18,6 @@ const initialState = {
   error: null,
   isLoading: false,
   message: undefined,
-  adminActions: false,
   qualificationSelected: "",
 };
 
@@ -28,7 +27,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         qualifications: action.payload.qualifications,
-        adminActions: false,
       };
 
     case ADD_QUALIFICATION_PENDING:

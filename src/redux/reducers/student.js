@@ -18,7 +18,6 @@ const initialState = {
   error: null,
   isLoading: false,
   message: undefined,
-  adminActions: false,
   studentSelected: "",
 };
 
@@ -27,8 +26,7 @@ export default function (state = initialState, action) {
     case FETCH_STUDENT:
       return {
         ...state,
-        students: action.payload.students,
-        adminActions: false,
+        students: action.payload.students
       };
 
     case ADD_STUDENT_PENDING:

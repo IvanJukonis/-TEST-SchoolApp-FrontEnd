@@ -3,9 +3,6 @@ import {
   ADD_STUDENT_PENDING,
   ADD_STUDENT_SUCCESS,
   ADD_STUDENT_ERROR,
-  UPDATE_STUDENT_PENDING,
-  UPDATE_STUDENT_SUCCESS,
-  UPDATE_STUDENT_ERROR,
   DELETE_STUDENT_PENDING,
   DELETE_STUDENT_SUCCESS,
   DELETE_STUDENT_ERROR,
@@ -17,11 +14,10 @@ import store from "../store/store";
 export const fetchStudents = () => (dispatch) => {
   fetch("http://localhost:5000/api/students")
     .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
+    .then((response) => {
       return dispatch({
         type: FETCH_STUDENT,
-        payload: data,
+        payload: response,
       });
     });
 };
@@ -45,14 +41,14 @@ export const postStudent = (student) => {
     };
     return fetch(`http://localhost:5000/api/students`, request)
       .then((response) => response.json())
-      .then((data) => {
-        if (!Object.entries(data).length) {
-          return Promise.reject(data);
+      .then((response) => {
+        if (!Object.entries(response).length) {
+          return Promise.reject(response);
         }
         return dispatch({
           type: ADD_STUDENT_SUCCESS,
           payload: {
-            student: data.createdStudent,
+            student: response.createdStudent,
           },
         });
       })
@@ -65,41 +61,7 @@ export const postStudent = (student) => {
   };
 };
 //#endregion
-//#region UPDATE STUDENTS
-export const updateStudent = (student) => {
-  console.log(student);
-  return (dispatch) => {
-    dispatch({
-      type: UPDATE_STUDENT_PENDING,
-    });
-    const options = {
-      timeout: 25000,
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ student }),
-    };
-    return fetch(`http://localhost:5000/api/students/${student._id}`, options)
-      .then((response) => response.json())
-      .then((data) => {
-        if (!Object.entries(data).length) {
-          return Promise.reject(data);
-        }
-        return dispatch({
-          type: UPDATE_STUDENT_SUCCESS,
-          payload: data,
-        });
-      })
-      .catch((error) => {
-        return dispatch({
-          type: UPDATE_STUDENT_ERROR,
-          payload: error,
-        });
-      });
-  };
-};
-//#endregion
+
 //#region DELETE STUDENT
 export const deleteStudent = (code) => {
   return (dispatch) => {
@@ -115,18 +77,18 @@ export const deleteStudent = (code) => {
     };
     return fetch(`http://localhost:5000/api/students/${code}`, options)
       .then((response) => response.json())
-      .then((data) => {
-        if (!Object.entries(data).length) {
-          return Promise.reject(data);
+      .then((response) => {
+        if (!Object.entries(response).length) {
+          return Promise.reject(response);
         }
-        if (data.message === "error") {
+        if (response.message === "error") {
           return dispatch({
             type: DELETE_STUDENT_ERROR,
           });
         } else {
           return dispatch({
             type: DELETE_STUDENT_SUCCESS,
-            payload: data,
+            payload: response,
           });
         }
       })
