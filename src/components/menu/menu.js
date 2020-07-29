@@ -50,18 +50,10 @@ class Menu extends Component {
             }}
             //Formik validation
             validationSchema={Yup.object().shape({
-              name: Yup.string()
-                .min(2,)
-                .required("Required"),
-              lastname: Yup.string()
-                .min(2,)
-                .required("Required"),
-              age: Yup.number()
-                .min(2,)
-                .required("Required"),
-              class: Yup.string()
-                .min(2,)
-                .required("Required"),
+              name: Yup.string().min(2).required("Required"),
+              lastname: Yup.string().min(2).required("Required"),
+              age: Yup.number().min(2).required("Required"),
+              class: Yup.string().min(2).required("Required"),
             })}
           >
             {({ handleSubmit }) => (
@@ -134,15 +126,9 @@ class Menu extends Component {
             }}
             //Formik validation
             validationSchema={Yup.object().shape({
-              studentId: Yup.string()
-                .min(2)
-                .required("Required"),
-              subject: Yup.string()
-                .min(2)
-                .required("Required"),
-              note: Yup.number()
-                .min(2)
-                .required("Required"),
+              studentId: Yup.string().min(2).required("Required"),
+              subject: Yup.string().min(2).required("Required"),
+              note: Yup.number().min(2).required("Required"),
             })}
           >
             {({ handleSubmit }) => (

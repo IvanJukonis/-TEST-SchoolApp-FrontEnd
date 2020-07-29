@@ -114,7 +114,7 @@ export const deleteStudent = (code) => {
       },
     };
     return fetch(`http://localhost:5000/api/students/${code}`, options)
-      .then((response) => response.json()) 
+      .then((response) => response.json())
       .then((data) => {
         if (!Object.entries(data).length) {
           return Promise.reject(data);
@@ -123,13 +123,12 @@ export const deleteStudent = (code) => {
           return dispatch({
             type: DELETE_STUDENT_ERROR,
           });
-        }
-        else{
+        } else {
           return dispatch({
             type: DELETE_STUDENT_SUCCESS,
             payload: data,
           });
-        }      
+        }
       })
       .catch((error) => {
         return dispatch({

@@ -17,12 +17,8 @@ class Register extends Component {
           }}
           //Formik validation
           validationSchema={Yup.object().shape({
-            password: Yup.string()
-              .min(2,)
-              .required("Required"),
-            email: Yup.string()
-              .min(2,)
-              .required("Required"),           
+            password: Yup.string().min(2).required("Required"),
+            email: Yup.string().min(2).required("Required"),
           })}
         >
           {({ handleSubmit }) => (

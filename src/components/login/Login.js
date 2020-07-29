@@ -29,14 +29,9 @@ class Login extends Component {
           onSubmit={this.getLogin}
           //Formik validation
           validationSchema={Yup.object().shape({
-            email: Yup.string()
-              .min(2,)
-              .required("Required"),
-            password: Yup.string()
-              .min(2,)
-              .required("Required"),           
+            email: Yup.string().min(2).required("Required"),
+            password: Yup.string().min(2).required("Required"),
           })}
-
         >
           {({ handleSubmit }) => (
             <Form onSubmit={handleSubmit}>
