@@ -3,13 +3,9 @@ import {
   ADD_STUDENT_PENDING,
   ADD_STUDENT_SUCCESS,
   ADD_STUDENT_ERROR,
-  UPDATE_STUDENT_PENDING,
-  UPDATE_STUDENT_SUCCESS,
-  UPDATE_STUDENT_ERROR,
   DELETE_STUDENT_PENDING,
   DELETE_STUDENT_SUCCESS,
   DELETE_STUDENT_ERROR,
-  SET_SELECTED_STUDENT_ID,
 } from "../actions/types";
 
 const initialState = {
@@ -52,41 +48,6 @@ export default function (state = initialState, action) {
         error: action.error,
         message: action.payload.message,
       };
-
-    case UPDATE_STUDENT_PENDING:
-      return {
-        ...state,
-        isLoading: true,
-      };
-
-    case UPDATE_STUDENT_SUCCESS: {
-      console.log(action.payload);
-      const newStudentUpdate = [...state.items];
-      const studentToUpdate = newStudentUpdate.findIndex(
-        (ele) => ele._id === action.payload._id
-      );
-
-      newStudentUpdate.splice(studentToUpdate, 1, action.payload.student.data);
-      return {
-        ...state,
-        isLoading: false,
-        students: newStudentUpdate,
-      };
-    }
-
-    case UPDATE_STUDENT_ERROR:
-      return {
-        ...state,
-        isLoading: false,
-        message: action.payload.message,
-      };
-
-    case SET_SELECTED_STUDENT_ID: {
-      return {
-        ...state,
-        studentSelected: action.payload,
-      };
-    }
 
     case DELETE_STUDENT_PENDING:
       return {
