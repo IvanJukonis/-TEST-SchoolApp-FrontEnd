@@ -13,7 +13,9 @@ class Register extends Component {
         <Formik
           initialValues={{ password: "", email: "" }}
           onSubmit={(values) => {
-            this.props.postUser(values);
+            this.props.postUser(values).then((res) => {
+              this.props.history.push("/home");
+            });
           }}
           //Formik validation
           validationSchema={Yup.object().shape({
